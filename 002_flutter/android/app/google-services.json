@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1047978402104",
+    "firebase_url": "https://projektstobi.firebaseio.com",
+    "project_id": "projektstobi",
+    "storage_bucket": "projektstobi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047978402104:android:c4044572285f38ea7421cd",
+        "android_client_info": {
+          "package_name": "dev.heino.project_stobi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047978402104-1t41ufankjveqthp74vatbgcttn1fmfm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.heino.project_stobi",
+            "certificate_hash": "d03c1e0e853759c7f2d0bb9d8c91715d291d7fbc"
+          }
+        },
+        {
+          "client_id": "1047978402104-jhgh9uc97ha7k2qt99sblnc5g6cmk8tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQF1K9nJ3z4uFX4pGB_9oLLzKAEnQZ2WM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047978402104-jhgh9uc97ha7k2qt99sblnc5g6cmk8tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

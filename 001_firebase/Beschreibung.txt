@@ -1,0 +1,12 @@
+Firebase - Account: heinrichbecker89.dev@gmail.com
+
+Firebase - Project: ProjektStobi
+
+Firebase - Functions:
+	sendeNotificationsBeimAnschreiben
+		Die Funktion reagiert auf die Creation von Messages im Cloud Firestore.
+		Der Path ist messages/groupID1/groupID2/message. 
+		Diese Messages werden von der Flutter Logic ausgeführt
+		Die Funktion prüft ob der Receiver im Chat ist, wenn nicht wird dessen pushToken herausgefunden und eine
+		Notification versand.
+		Der Body der Notification wird hier auch definiert
