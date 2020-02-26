@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/MainPage/ui/mainPage.dart';
+import 'package:project_stobi/Features/MainPage/ui/mainPage_depricated.dart';
 
-class SettingsDropdown extends StatefulWidget {
+class SettingsDropdownDepricated extends StatefulWidget {
   final int activePage;
   final void Function(PopupPages) elementChosenCallback;
 
-  const SettingsDropdown(
+  const SettingsDropdownDepricated(
       {Key key,
       @required this.activePage,
       @required this.elementChosenCallback})
       : super(key: key);
 
   @override
-  _SettingsDropdownState createState() => _SettingsDropdownState();
+  _SettingsDropdownDepricatedState createState() => _SettingsDropdownDepricatedState();
 }
 
-class _SettingsDropdownState extends State<SettingsDropdown> {
+class _SettingsDropdownDepricatedState extends State<SettingsDropdownDepricated> {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<PopupPages>(

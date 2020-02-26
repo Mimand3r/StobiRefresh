@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
 
-class SearchingPage extends StatefulWidget {
-  SearchingPage(
+class SearchingPageDepricated extends StatefulWidget {
+  SearchingPageDepricated(
       {Key key,
       @required this.height,
       @required this.width,
@@ -16,10 +16,10 @@ class SearchingPage extends StatefulWidget {
 
   final void Function(String) userWillFahrradSuchenCallback;
 
-  _SearchingPageState createState() => _SearchingPageState();
+  _SearchingPageDepricatedState createState() => _SearchingPageDepricatedState();
 }
 
-class _SearchingPageState extends State<SearchingPage> {
+class _SearchingPageDepricatedState extends State<SearchingPageDepricated> {
   FocusNode focusNode;
   TextEditingController controller;
 

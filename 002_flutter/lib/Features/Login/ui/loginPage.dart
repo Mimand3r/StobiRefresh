@@ -3,6 +3,7 @@ import 'package:project_stobi/Features/Login/state/auth_module.dart';
 import 'package:project_stobi/Features/Login/ui/ask_for_name_helper.dart';
 import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
 import 'package:project_stobi/Features/MainPage/ui/mainPage.dart';
+import 'package:project_stobi/Features/MainPage/ui/mainPage_depricated.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
 
 class LoginPage extends StatefulWidget {
@@ -74,7 +75,8 @@ class _LoginPageState extends State<LoginPage> {
                 loadingText: "Neuer User wird erstellt",
               );
 
-            return MainPage(osData: osData, user: user);
+            // return MainPageDepricated(osData: osData, user: user);
+            return MainPage();
           },
         );
       },

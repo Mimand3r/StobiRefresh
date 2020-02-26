@@ -4,14 +4,14 @@ import 'package:project_stobi/General/colors.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module.dart';
 
-class ChatPopup extends StatefulWidget {
+class ChatPopupDepricated extends StatefulWidget {
   final Conversation conversationData;
   final DbUser user;
   final String chatPartnerId;
   final double width;
   final double height;
 
-  const ChatPopup(
+  const ChatPopupDepricated(
       {Key key,
       @required this.conversationData,
       @required this.user,
@@ -21,10 +21,10 @@ class ChatPopup extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ChatPopupState createState() => _ChatPopupState();
+  _ChatPopupDepricatedState createState() => _ChatPopupDepricatedState();
 }
 
-class _ChatPopupState extends State<ChatPopup> with WidgetsBindingObserver{
+class _ChatPopupDepricatedState extends State<ChatPopupDepricated> with WidgetsBindingObserver{
   final TextEditingController textEditingController =
       new TextEditingController();
   final ScrollController listScrollController = new ScrollController();

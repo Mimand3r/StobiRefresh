@@ -4,19 +4,19 @@ import 'package:project_stobi/General/colors.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
 import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
-class BikesearchResultPopup extends StatefulWidget {
+class BikesearchResultPopupDepricated extends StatefulWidget {
   final Bike bike;
   final DbUser user;
   final Future Function(Bike) kontaktiereUserCallback;
 
-  const BikesearchResultPopup({Key key, @required this.bike, @required this.user, @required this.kontaktiereUserCallback})
+  const BikesearchResultPopupDepricated({Key key, @required this.bike, @required this.user, @required this.kontaktiereUserCallback})
       : super(key: key);
 
   @override
-  _BikesearchResultPopupState createState() => _BikesearchResultPopupState();
+  _BikesearchResultPopupDepricatedState createState() => _BikesearchResultPopupDepricatedState();
 }
 
-class _BikesearchResultPopupState extends State<BikesearchResultPopup> {
+class _BikesearchResultPopupDepricatedState extends State<BikesearchResultPopupDepricated> {
 
   void kontaktiereBikeBesitzer(BuildContext context){
     widget.kontaktiereUserCallback(widget.bike);

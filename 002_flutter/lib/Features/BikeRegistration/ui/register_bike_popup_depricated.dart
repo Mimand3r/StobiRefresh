@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:project_stobi/General/colors.dart';
 import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
-class RegisterBikePopup extends StatefulWidget {
+class RegisterBikePopupDepricated extends StatefulWidget {
   final double width;
   final Future Function(String, String, String) userRegisteredBikeCallback;
 
-  RegisterBikePopup(
+  RegisterBikePopupDepricated(
       {Key key,
       @required this.width,
       @required this.userRegisteredBikeCallback})
       : super(key: key);
 
-  _RegisterBikePopupState createState() => _RegisterBikePopupState();
+  _RegisterBikePopupDepricatedState createState() => _RegisterBikePopupDepricatedState();
 }
 
-class _RegisterBikePopupState extends State<RegisterBikePopup> {
+class _RegisterBikePopupDepricatedState extends State<RegisterBikePopupDepricated> {
   FocusNode gstlNrFocusNode = new FocusNode();
   TextEditingController gstlNrController = TextEditingController();
   FocusNode modellFocusNode = new FocusNode();

@@ -1,92 +1,76 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
-import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
+import 'package:project_stobi/Features/BikeList/ui/widgets/bike_list_element.dart';
+import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
+import 'package:provider/provider.dart';
 
-class MyBikesPage extends StatefulWidget {
-  MyBikesPage(
-      {Key key,
-      @required this.height,
-      @required this.width,
-      @required this.user,
-      @required this.currentlyRegisteringABike,
-      @required this.currentlyGettingBikeList,
-      @required this.bikeList})
-      : super(key: key);
 
-  final double height;
-  final double width;
-  final DbUser user;
-  final bool currentlyRegisteringABike;
-  final bool currentlyGettingBikeList;
-  final List<Bike> bikeList;
-
+class PageMyBikes extends StatefulWidget {
+  
   @override
-  _MyBikesPageState createState() => _MyBikesPageState();
+  _PageMyBikesState createState() => _PageMyBikesState();
 }
 
-class _MyBikesPageState extends State<MyBikesPage> {
+class _PageMyBikesState extends State<PageMyBikes> {
+
+
+
+
   @override
   Widget build(BuildContext context) {
-    if (widget.currentlyRegisteringABike)
-      return LoadingWidget(
-        loadingText: "Fahrrad wird gerade registriert",
-      );
 
-    if (widget.currentlyGettingBikeList)
-      return LoadingWidget(
-        loadingText: "Fahrradliste wird geladen",
-      );
+    // Peformance warning. Setting ProviderState each Frame (initstate introduced pop-bug)
+    var navbarManager = Provider.of<SmNavbar>(context, listen: false);
+    
+    Future.microtask(() {
+      
+      navbarManager.showOptions = false;
+      navbarManager.showAddElement = true;
+      navbarManager.updateNavBar();
+    });
 
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: widget.bikeList.length,
-      itemBuilder: (context, i) {
-        return Card(
-          elevation: 8,
-          margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: AppColors.top_bar_gradient_end,
-            ),
-            child: ListTile(
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                leading: Container(
-                  width: 50.0,
-                  height: 50.0,
-                  // margin: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image:
-                              AssetImage('assets/pictures/anonymousBike.jpg'))),
-                ),
-                title: Text(
-                  widget.bikeList[i].spitzName,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Icon(Icons.linear_scale, color: Colors.yellowAccent),
-                        Text("Modell: ${widget.bikeList[i].modell}",
-                            style: TextStyle(color: Colors.white)),
-                      ],
-                    ),
-                    Text("GestellNr: ${widget.bikeList[i].gestellNr}",
-                        style: TextStyle(color: Colors.white))
-                  ],
-                ),
-                trailing: Icon(Icons.keyboard_arrow_right,
-                    color: Colors.white, size: 30.0)),
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+                BikeListElement(),
+              ],
+            )
           ),
-        );
-      },
+        ),
+      ),
     );
   }
+
+  @override
+  void deactivate() {
+      final navbarManager = Provider.of<SmNavbar>(context, listen: false);
+    
+    Future.microtask(() {
+      
+      navbarManager.showOptions = true;
+      navbarManager.showAddElement = false;
+      navbarManager.updateNavBar();
+    });
+    super.deactivate();
+  }
+
 }

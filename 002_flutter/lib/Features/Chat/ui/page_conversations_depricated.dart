@@ -3,7 +3,7 @@ import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
 import 'package:project_stobi/General/colors.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
 
-class ConversationsPage extends StatefulWidget {
+class ConversationsPageDepricated extends StatefulWidget {
   final List<Conversation> conversationList;
   final bool currentlyLoadingConversations;
   final DbUser user;
@@ -11,7 +11,7 @@ class ConversationsPage extends StatefulWidget {
   final double height;
   final void Function(Conversation, String) chatTappedCallback;
 
-  const ConversationsPage(
+  const ConversationsPageDepricated(
       {Key key,
       @required this.conversationList,
       @required this.currentlyLoadingConversations,
@@ -21,10 +21,10 @@ class ConversationsPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ConversationsPageState createState() => _ConversationsPageState();
+  _ConversationsPageDepricatedState createState() => _ConversationsPageDepricatedState();
 }
 
-class _ConversationsPageState extends State<ConversationsPage> {
+class _ConversationsPageDepricatedState extends State<ConversationsPageDepricated> {
   final ScrollController listScrollController = new ScrollController();
 
   void chatGotTapped(BuildContext context, int i, String chatPartnerId) {
