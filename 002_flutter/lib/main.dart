@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/Login/ui/loginPage.dart';
-import 'package:project_stobi/General/stateManagerRegister.dart';
 import 'package:provider/provider.dart';
+
+import 'Features/Login/ui/loginPage.dart';
+import 'General/colors.dart';
+import 'General/stateManagerRegister.dart';
 
 void main() => runApp(Root());
 
@@ -15,7 +17,16 @@ class Root extends StatelessWidget {
       child: MaterialApp(
           title: "Stobi",
           debugShowCheckedModeBanner: false,
-          home: SafeArea(child: LoginPage())),
+          home: Stack(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: bgroundColor,
+              ),
+              SafeArea(child: LoginPage()),
+            ],
+          )),
     );
   }
 }

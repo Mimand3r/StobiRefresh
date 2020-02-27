@@ -5,7 +5,8 @@ import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
+
+import 'firestore_worker.dart';
 
 class MessagingModule {
 

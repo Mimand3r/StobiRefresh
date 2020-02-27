@@ -1,5 +1,9 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
+Color bgroundColor = Colors.white;
+
 class AppColors {
   static final top_bar_gradient_start = HexColor("#024547");
   static final top_bar_gradient_end = HexColor("#003334");
