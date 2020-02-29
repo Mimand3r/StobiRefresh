@@ -1,3 +1,5 @@
+
+import 'package:project_stobi/General/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/widgets/bike_registration_form.dart';
@@ -18,37 +20,49 @@ class _BikeRegistrationPageState extends State<BikeRegistrationPage> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Align(
-            child: NavBarLogoOnly(),
-            alignment: Alignment.topCenter,
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: bgroundColor,
           ),
-          Column(
-            children: <Widget>[
-              SizedBox(
-                height: 70,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 30,
-                  child: Text(
-                    "Neues Bike registrieren",
-                    style: regNewBikeText,
-                  ),
+          SafeArea(
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  child: NavBarLogoOnly(),
+                  alignment: Alignment.topCenter,
                 ),
-              ),
-              // SizedBox(height: 10,),
-              Expanded(
-                child: Container(
-                  child: SingleChildScrollView(child: BikeRegistrationForm()),
-                ),
-              ),
-              BottomNavBar(
-                isPopup: true,
-              )
-            ],
-          )
+                Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: 70,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 30,
+                        child: Text(
+                          "Neues Bike registrieren",
+                          style: regNewBikeText,
+                        ),
+                      ),
+                    ),
+                    // SizedBox(height: 10,),
+                    Expanded(
+                      child: Container(
+                        child: SingleChildScrollView(
+                            child: BikeRegistrationForm()),
+                      ),
+                    ),
+                    BottomNavBar(
+                      isPopup: true,
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

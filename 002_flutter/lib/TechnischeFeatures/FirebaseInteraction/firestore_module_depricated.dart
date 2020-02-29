@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:core';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
 
-import 'firestore_worker_depricated.dart';
+import 'data/database_types_depricated.dart';
+import 'firestore_worker.dart';
 
 class FirestoreModule_depricated {
   // Singleton
