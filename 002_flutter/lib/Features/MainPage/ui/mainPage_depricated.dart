@@ -9,9 +9,9 @@ import 'package:project_stobi/Features/Chat/ui/page_conversations_depricated.dar
 import 'package:project_stobi/Features/MainPage/ui/widgets/background.dart';
 import 'package:project_stobi/Features/NavBar/ui/nav_bar_depricated.dart';
 import 'package:project_stobi/Features/NavBar/ui/settings_dropdown_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/messaging_module.dart';
 import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
@@ -19,7 +19,7 @@ class MainPageDepricated extends StatefulWidget {
   MainPageDepricated({Key key, @required this.osData, @required this.user})
       : super(key: key);
 
-  final DbUser user;
+  final DbUser_depricated user;
   final MediaQueryData osData;
 
   _MainPageDepricatedState createState() => _MainPageDepricatedState();
@@ -33,7 +33,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
   bool currentlyLoadingConversations = false;
   bool currentlySearchingABike = false;
 
-  DbUser user;
+  DbUser_depricated user;
   List<Bike> bikeList;
   List<Conversation> conversationList;
 
@@ -66,7 +66,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
     setState(() {
       currentlyGettingBikeList = true;
     });
-    var newBikeList = await FirestoreModule.instance.getUserBikeList(user);
+    var newBikeList = await FirestoreModule_depricated.instance.getUserBikeList(user);
     setState(() {
       bikeList = newBikeList;
       currentlyGettingBikeList = false;
@@ -76,7 +76,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
   Future loadUserConversationList() async {
     setState(() => currentlyLoadingConversations = true);
     var newConvList =
-        await FirestoreModule.instance.getAllUserConversations(user);
+        await FirestoreModule_depricated.instance.getAllUserConversations(user);
 
     var newUnreadMessages = 0;
     user.unreadMessages.forEach((s, i) => newUnreadMessages += i);
@@ -100,7 +100,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
     setState(() {
       currentlySearchingABike = true;
     });
-    var newBike = await FirestoreModule.instance.searchABike(gestellNr);
+    var newBike = await FirestoreModule_depricated.instance.searchABike(gestellNr);
 
     setState(() {
       currentlySearchingABike = false;
@@ -130,7 +130,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
       setState(() {
         currentlyRegisteringABike = true;
       });
-      await FirestoreModule.instance
+      await FirestoreModule_depricated.instance
           .registerABike(user, gestellNr, modellBezeichnung, spitzName, "");
     } on Exception catch (e) {
       Scaffold.of(context).showSnackBar(SnackBar(
@@ -162,9 +162,9 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
       activePage = 2;
       currentlyLoadingConversations = true;
     });
-    var neueConversation = await FirestoreModule.instance
+    var neueConversation = await FirestoreModule_depricated.instance
         .erstelleNeueKonversationMitFahrradBesitzer(user, bike);
-    var newUser = await FirestoreWorker.readUserFromDb(user.uId);
+    var newUser = await FirestoreWorker_depricated.readUserFromDb(user.uId);
     setState(() {
       user = newUser;
     });
@@ -177,7 +177,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
   }
 
   Future messageArrived() async {
-    var newUser = await FirestoreWorker.readUserFromDb(user.uId);
+    var newUser = await FirestoreWorker_depricated.readUserFromDb(user.uId);
     setState(() {
       user = newUser;
     });
@@ -185,10 +185,10 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
   }
 
   void chatTapped(Conversation conv, String partnerId) {
-    FirestoreModule.instance
+    FirestoreModule_depricated.instance
         .chatRoomBetreten(conv.convId, user)
         .then((_) async {
-      var newUser = await FirestoreWorker.readUserFromDb(user.uId);
+      var newUser = await FirestoreWorker_depricated.readUserFromDb(user.uId);
       setState(() {
         user = newUser;
       });

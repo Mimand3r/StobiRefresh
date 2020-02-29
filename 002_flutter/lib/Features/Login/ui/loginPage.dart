@@ -3,8 +3,7 @@ import 'package:project_stobi/Features/Login/state/auth_module.dart';
 import 'package:project_stobi/Features/Login/ui/ask_for_name_helper.dart';
 import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
 import 'package:project_stobi/Features/MainPage/ui/mainPage.dart';
-import 'package:project_stobi/Features/MainPage/ui/mainPage_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -16,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   //State Vars
 
   MediaQueryData osData;
-  DbUser user;
+  FbaseUser user;
   bool readingFinished = false;
 
   @override
@@ -43,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       userChoseAName = true;
     });
-    user = await AuthModule.instance.createUser(chosenName);
+    user = await AuthModule.instance.createNewUser(chosenName);
     setState(() {});
   }
 

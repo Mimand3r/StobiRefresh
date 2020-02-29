@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
 
 class MessagingModule {
 
@@ -38,7 +38,7 @@ class MessagingModule {
 
     await firebaseMessaging.getToken().then((token) async{
       print('token: $token');
-      await FirestoreWorker.storeUserMessageToken(uId, token);
+      await FirestoreWorker_depricated.storeUserMessageToken(uId, token);
     }).catchError((err) => Fluttertoast.showToast(msg: err.message.toString()));
 
     var initializationSettingsAndroid = new AndroidInitializationSettings('app_icon');

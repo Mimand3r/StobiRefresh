@@ -1,12 +1,12 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
 import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class BikesearchResultPopupDepricated extends StatefulWidget {
   final Bike bike;
-  final DbUser user;
+  final DbUser_depricated user;
   final Future Function(Bike) kontaktiereUserCallback;
 
   const BikesearchResultPopupDepricated({Key key, @required this.bike, @required this.user, @required this.kontaktiereUserCallback})

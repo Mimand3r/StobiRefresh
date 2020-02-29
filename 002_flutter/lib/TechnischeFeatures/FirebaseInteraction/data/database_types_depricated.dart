@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class DbUser {
+class DbUser_depricated {
   String uId;
   String name;
   String photoUrl;
@@ -9,7 +9,7 @@ class DbUser {
   Map<String, int> unreadMessages;
   String isInChat = "";
 
-  DbUser(
+  DbUser_depricated(
       {this.uId = "",
       this.name = "",
       this.photoUrl = "",
@@ -22,8 +22,8 @@ class DbUser {
     if (unreadMessages == null) unreadMessages = new Map<String, int>();
   }
 
-  static DbUser fromSnapshot(DocumentSnapshot snap) {
-    return DbUser(
+  static DbUser_depricated fromSnapshot(DocumentSnapshot snap) {
+    return DbUser_depricated(
       uId: snap.data['uId'],
       name: snap.data['name'],
       photoUrl: snap.data['photoUrl'],

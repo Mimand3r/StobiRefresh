@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
 
 class ChatPopupDepricated extends StatefulWidget {
   final Conversation conversationData;
-  final DbUser user;
+  final DbUser_depricated user;
   final String chatPartnerId;
   final double width;
   final double height;
@@ -41,7 +41,7 @@ class _ChatPopupDepricatedState extends State<ChatPopupDepricated> with WidgetsB
 
    @override
   void dispose() { 
-    FirestoreModule.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
+    FirestoreModule_depricated.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -50,23 +50,23 @@ class _ChatPopupDepricatedState extends State<ChatPopupDepricated> with WidgetsB
   void didChangeAppLifecycleState(AppLifecycleState state) { 
     switch (state) {
       case AppLifecycleState.inactive:
-        FirestoreModule.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
+        FirestoreModule_depricated.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
         break;
       case AppLifecycleState.paused:
-        FirestoreModule.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
+        FirestoreModule_depricated.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
         break;
       case AppLifecycleState.resumed:
-        FirestoreModule.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
+        FirestoreModule_depricated.instance.leaveChatRoom(widget.conversationData.convId, widget.user);
         break;
       case AppLifecycleState.detached:
-        FirestoreModule.instance.leaveChatRoom(widget.conversationData.convId, widget.user);  
+        FirestoreModule_depricated.instance.leaveChatRoom(widget.conversationData.convId, widget.user);  
         break;
     }
   }
 
   void userHatNachrichtGeschrieben(String nachricht, int nachrichtenType) {
     if (nachricht == "") return;
-    FirestoreModule.instance.writeChatMessage(
+    FirestoreModule_depricated.instance.writeChatMessage(
         widget.conversationData, widget.user, nachricht, nachrichtenType);
     focusNode.unfocus();
     textEditingController.clear();
@@ -75,7 +75,7 @@ class _ChatPopupDepricatedState extends State<ChatPopupDepricated> with WidgetsB
   Widget buildListofMessages() {
     return Flexible(
       child: StreamBuilder(
-        stream: FirestoreModule.instance
+        stream: FirestoreModule_depricated.instance
             .getChatMessageStream(widget.conversationData.convId),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {

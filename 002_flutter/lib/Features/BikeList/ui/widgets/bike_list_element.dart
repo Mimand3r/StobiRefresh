@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeList/ui/configs/textStyles.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
 
 class BikeListElement extends StatefulWidget {
+
+  final Bike bike;
+
+  const BikeListElement({Key key, this.bike}) : super(key: key);
+
   @override
   _BikeListElementState createState() => _BikeListElementState();
 }
@@ -32,12 +38,14 @@ class _BikeListElementState extends State<BikeListElement> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: <Widget>[
-                          Line(header: "Name", value: "Placeholder"),
-                          Line(header: "FahrgestellNr", value: "01756454510212"),
-                          Line(header: "RegisterDate", value: "17.12.2019"),
-                          Line(header: "Modell", value: "EBike"),
-                          Line(header: "Größe", value: "175"),
-                          Line(header: "Hersteller", value: "Placeholder"),
+                          Line(header: "RahmenNummer", value: widget.bike.rahmenNummer),
+                          Line(header: "RegisterDate", value: DateTime.fromMillisecondsSinceEpoch(widget.bike.idData.registerDate).toLocal().toString()), // TODO convert to Date
+                          Line(header: "Modell", value: widget.bike.idData.modell),
+                          Line(header: "Art", value: widget.bike.idData.art),
+                          Line(header: "Größe", value: widget.bike.idData.groesse),
+                          Line(header: "Farbe", value: widget.bike.idData.farbe),
+                          Line(header: "Hersteller", value: widget.bike.idData.hersteller),
+                          Line(header: "VersicherungsGesellschaft", value: widget.bike.versicherungsData.gesellschaft),
                         ],
                       ),
                     ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
 import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
 
 class ConversationsPageDepricated extends StatefulWidget {
   final List<Conversation> conversationList;
   final bool currentlyLoadingConversations;
-  final DbUser user;
+  final DbUser_depricated user;
   final double width;
   final double height;
   final void Function(Conversation, String) chatTappedCallback;

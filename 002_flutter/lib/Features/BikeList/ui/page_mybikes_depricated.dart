@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
 import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
 
 class MyBikesPageDepricated extends StatefulWidget {
   MyBikesPageDepricated(
@@ -16,7 +16,7 @@ class MyBikesPageDepricated extends StatefulWidget {
 
   final double height;
   final double width;
-  final DbUser user;
+  final DbUser_depricated user;
   final bool currentlyRegisteringABike;
   final bool currentlyGettingBikeList;
   final List<Bike> bikeList;
