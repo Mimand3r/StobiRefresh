@@ -22,6 +22,7 @@ class _AddElementState extends State<AddElement> {
         child: GestureDetector(
           onTap: addBikeGotPressed,
           child: Container(
+            color: Colors.transparent,
             width: 50,
             height: 30,
             // color: Colors.red,

@@ -45,6 +45,7 @@ class Bike {
   String rahmenNummer;
   BikeIdData idData;
   BikeVersicherungsData versicherungsData;
+  List<String> pictures;
 
   Bike({this.rahmenNummer, this.idData, this.versicherungsData});
 
@@ -54,15 +55,20 @@ class Bike {
     return output;
   }
 
-  static Bike createBikeFromSnapshot(Map<String, dynamic> snap) {
-    var idData = BikeIdData.fromSnapshot(snap['idData']);
+  static Bike createBikeFromSnapshot(dynamic snap) {
+    var map = Map<String, dynamic>.from(snap);
+    var idData = BikeIdData.fromSnapshot(map['idData']);
     var versicherungsData =
         BikeVersicherungsData.fromSnapshot(snap['versicherungsData']);
+    List<String> pictures;
+    if (snap['pictures'] != null)
+      pictures = List<String>.from(snap['pictures']);
 
     return Bike(
         rahmenNummer: snap['rahmenNr'],
         idData: idData,
-        versicherungsData: versicherungsData);
+        versicherungsData: versicherungsData)
+      ..pictures = pictures;
   }
 
   static List<Map<String, dynamic>> listToSnapshot(List<Bike> bikes) {
@@ -76,6 +82,7 @@ class Bike {
       'rahmenNr': this.rahmenNummer,
       'idData': this.idData.toSnapshot(),
       'versicherungsData': this.versicherungsData.toSnapshot(),
+      'pictures': this.pictures
     };
   }
 }
@@ -100,16 +107,20 @@ class BikeIdData {
       this.beschreibung,
       this.registerDate});
 
-  static BikeIdData fromSnapshot(DocumentSnapshot snap) => BikeIdData(
-        name: snap.data['name'],
-        art: snap.data['art'],
-        modell: snap.data['modell'],
-        hersteller: snap.data['hersteller'],
-        groesse: snap.data['groesse'],
-        farbe: snap.data['farbe'],
-        beschreibung: snap.data['beschreibung'],
-        registerDate: snap.data['registerDate'],
-      );
+  static BikeIdData fromSnapshot(dynamic input) {
+    var snap = Map<String, dynamic>.from(input);
+
+    return BikeIdData(
+      name: snap['name'],
+      art: snap['art'],
+      modell: snap['modell'],
+      hersteller: snap['hersteller'],
+      groesse: snap['groesse'],
+      farbe: snap['farbe'],
+      beschreibung: snap['beschreibung'],
+      registerDate: snap['registerDate'],
+    );
+  }
 
   Map<String, dynamic> toSnapshot() {
     return {
@@ -131,9 +142,12 @@ class BikeVersicherungsData {
 
   BikeVersicherungsData({this.gesellschaft, this.nummer});
 
-  static BikeVersicherungsData fromSnapshot(DocumentSnapshot snap) =>
-      BikeVersicherungsData(
-          gesellschaft: snap.data['gesellschaft'], nummer: snap.data['nummer']);
+  static BikeVersicherungsData fromSnapshot(dynamic input) {
+    var snap = Map<String, dynamic>.from(input);
+
+    return BikeVersicherungsData(
+        gesellschaft: snap['gesellschaft'], nummer: snap['nummer']);
+  }
 
   Map<String, dynamic> toSnapshot() {
     return {'gesellschaft': this.gesellschaft, 'nummer': this.nummer};

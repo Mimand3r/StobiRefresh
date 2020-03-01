@@ -1,8 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:project_stobi/Features/BikeRegistration/state/registration_manager.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/colors.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
+import 'package:project_stobi/Features/BikeRegistration/ui/widgets/form_images.dart';
 import 'package:project_stobi/Features/Login/state/auth_module.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
+import 'package:provider/provider.dart';
 
 class BikeRegistrationForm extends StatefulWidget {
   BikeRegistrationForm({Key key}) : super(key: key);
@@ -26,7 +32,25 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
   String _zubehoer;
   String _beschreibung;
 
-  void addFileClicked() {}
+  void addFileClicked() async {
+    // Open Gallery and Choose Picture
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    if (image == null) return;
+
+    // Store Picture in Local List and update SetState
+    setState(() => localImageList.add(image));
+  }
+
+  void addPhotoClicked() async {
+    // Open Gallery and Choose Picture
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (image == null) return;
+
+    // Store Picture in Local List and update SetState
+    setState(() => localImageList.add(image));
+  }
 
   void saveFormClicked() async {
     final form = _formKey.currentState;
@@ -47,29 +71,40 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
         groesse: _groesse,
         hersteller: _hersteller,
         modell: _modell,
-        registerDate: DateTime.now().millisecondsSinceEpoch, // TODO register Date
+        registerDate: DateTime.now().millisecondsSinceEpoch,
       ),
       versicherungsData: BikeVersicherungsData(
           nummer: _versicherungsnummer,
           gesellschaft: _versicherungsgesellschaft),
     );
 
-    var oldUserData = AuthModule.instance.getLoggedInUser();
-    oldUserData.bikes.add(newBike);
+    var regManager = Provider.of<SmRegistrationManager>(context, listen: false);
 
-    await AuthModule.instance.changeUserData(oldUserData);
+    await regManager.registerBike(newBike, localImageList);
 
     Navigator.of(context).pop();
-
   }
 
+  void removePicture(int index) =>
+      setState(() => localImageList.removeAt(index));
+
   bool currentlySavingBike = false;
+
+  List<File> localImageList = <File>[];
 
   @override
   Widget build(BuildContext context) {
     if (currentlySavingBike)
       return Center(
-        child: Text("Currently Saving Bike"),
+        child: Column(
+          children: <Widget>[
+            CircularProgressIndicator(),
+            SizedBox(
+              height: 10,
+            ),
+            Text("Currently Saving Bike"),
+          ],
+        ),
       );
     else
       return Form(
@@ -80,68 +115,9 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
               height: 10,
             ),
             FormBox(
-              label: "Hersteller",
-              keyboardType: TextInputType.text,
-              validator: (v) {
-                if (v.length == 0) return "Hersteller muss angegeben werden";
-                return null;
-              },
-              onSaved: (s) => _hersteller = s,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            FormBox(
-              label: "Modell",
-              keyboardType: TextInputType.text,
-              validator: (v) {
-                if (v.length == 0) return "Modell muss angegeben werden";
-                return null;
-              },
-              onSaved: (s) => _modell = s,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            FormBox(
-              label: "Art",
-              keyboardType: TextInputType.text,
-              validator: (v) {
-                if (v.length == 0) return "Art muss angegeben werden";
-                return null;
-              },
-              onSaved: (s) => _art = s,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            FormBox(
-              label: "Größe",
-              keyboardType: TextInputType.text,
-              validator: (v) {
-                if (v.length == 0) return "Groesse muss angegeben werden";
-                return null;
-              },
-              onSaved: (s) => _groesse = s,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            FormBox(
-              label: "Name",
-              keyboardType: TextInputType.text,
-              validator: (v) {
-                if (v.length == 0) return "Name muss angegeben werden";
-                return null;
-              },
-              onSaved: (s) => _name = s,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            FormBox(
               label: "Rahmennummer",
               keyboardType: TextInputType.text,
+              isOptional: false,
               validator: (v) {
                 if (v.length == 0) return "Rahmennummer muss angegeben werden";
                 return null;
@@ -152,47 +128,106 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
               height: 15,
             ),
             FormBox(
-              label: "Versicherungsgesellschaft",
+              label: "Name",
               keyboardType: TextInputType.text,
+              isOptional: true,
               validator: (v) {
-                if (v.length == 0)
-                  return "Versicherungsgesellschaft muss angegeben werden";
+                // if (v.length == 0) return "Name muss angegeben werden";
                 return null;
               },
-              onSaved: (s) => _versicherungsgesellschaft = s,
+              onSaved: (s) => _name = s,
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Stack(
+              children: <Widget>[
+                Divider(
+                  thickness: 1.0,
+                ),
+                Center(
+                  child: Container(
+                      color: Colors.white,
+                      child: Text(
+                        "Details",
+                        style: dividerText,
+                      )),
+                )
+              ],
             ),
             SizedBox(
               height: 15,
             ),
             FormBox(
-              label: "Versicherungsnummer",
+              label: "Art",
               keyboardType: TextInputType.text,
+              isOptional: false,
               validator: (v) {
-                if (v.length == 0)
-                  return "Versicherungsnummer muss angegeben werden";
+                // if (v.length == 0) return "Art muss angegeben werden";
                 return null;
               },
-              onSaved: (s) => _versicherungsnummer = s,
+              onSaved: (s) => _art = s,
             ),
             SizedBox(
               height: 15,
             ),
             FormBox(
-              label: "Herstellerfarbbezeichnung",
+              label: "Modell",
               keyboardType: TextInputType.text,
+              isOptional: false,
+              validator: (v) {
+                // if (v.length == 0) return "Modell muss angegeben werden";
+                return null;
+              },
+              onSaved: (s) => _modell = s,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            FormBox(
+              label: "Größe",
+              keyboardType: TextInputType.text,
+              isOptional: false,
+              validator: (v) {
+                // if (v.length == 0) return "Groesse muss angegeben werden";
+                return null;
+              },
+              onSaved: (s) => _groesse = s,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            FormBox(
+              label: "Hersteller",
+              keyboardType: TextInputType.text,
+              isOptional: false,
+              validator: (v) {
+                // if (v.length == 0) return "Hersteller muss angegeben werden";
+                return null;
+              },
+              onSaved: (s) => _hersteller = s,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            FormBox(
+              label: "Farbe",
+              keyboardType: TextInputType.text,
+              isOptional: false,
               validator: (v) {
                 if (v.length == 0)
-                  return "Herstellerfarbbezeichnung muss angegeben werden";
-                return null;
+                  // return "Herstellerfarbbezeichnung muss angegeben werden";
+                  return null;
               },
               onSaved: (s) => _herstellerfarbbezeichnung = s,
             ),
             SizedBox(
-              height: 35,
+              height: 15,
             ),
             FormBox(
               label: "Zubehör",
               keyboardType: TextInputType.text,
+              isOptional: false,
               validator: (v) {
                 // if (v.length == 0) return "Zubehör muss angegeben werden";
                 return null;
@@ -209,10 +244,81 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
               onSaved: (s) => _beschreibung = s,
             ),
             SizedBox(
+              height: 25,
+            ),
+            Stack(
+              children: <Widget>[
+                Divider(
+                  thickness: 1.0,
+                ),
+                Center(
+                  child: Container(
+                      color: Colors.white,
+                      child: Text(
+                        "Versicherung",
+                        style: dividerText,
+                      )),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            FormBox(
+              label: "Versicherungsgesellschaft",
+              isOptional: false,
+              keyboardType: TextInputType.text,
+              validator: (v) {
+                if (v.length == 0)
+                  // return "Versicherungsgesellschaft muss angegeben werden";
+                  return null;
+              },
+              onSaved: (s) => _versicherungsgesellschaft = s,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            FormBox(
+              label: "Versicherungsnummer",
+              keyboardType: TextInputType.text,
+              isOptional: false,
+              validator: (v) {
+                if (v.length == 0)
+                  // return "Versicherungsnummer muss angegeben werden";
+                  return null;
+              },
+              onSaved: (s) => _versicherungsnummer = s,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Stack(
+              children: <Widget>[
+                Divider(
+                  thickness: 1.0,
+                ),
+                Center(
+                  child: Container(
+                      color: Colors.white,
+                      child: Text(
+                        "Bilder",
+                        style: dividerText,
+                      )),
+                )
+              ],
+            ),
+            SizedBox(
               height: 35,
             ),
+            FormLocalImages(
+              importedImages: localImageList,
+              removePictureCallback: removePicture,
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
                   onTap: addFileClicked,
@@ -230,26 +336,48 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  width: 20.0,
+                ),
                 GestureDetector(
-                  onTap: saveFormClicked,
+                  onTap: addPhotoClicked,
                   child: Container(
-                    width: 120,
+                    width: 60,
                     height: 40,
                     decoration: BoxDecoration(
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    child: Center(
-                        child: Text(
-                      "Save",
-                      style: saveButtonText,
-                    )),
+                    child: Icon(
+                      Icons.camera_enhance,
+                      color: Colors.black,
+                      size: 32,
+                    ),
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 40,
+            ),
+            GestureDetector(
+              onTap: saveFormClicked,
+              child: Container(
+                width: 260,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Center(
+                    child: Text(
+                  "Speichern",
+                  style: saveButtonText,
+                )),
+              ),
+            ),
+            SizedBox(
+              height: 30,
             ),
           ],
         ),
@@ -262,9 +390,15 @@ class FormBox extends StatefulWidget {
   final String Function(String) validator;
   final void Function(String) onSaved;
   final TextInputType keyboardType;
+  final bool isOptional;
 
   const FormBox(
-      {Key key, this.label, this.validator, this.keyboardType, this.onSaved})
+      {Key key,
+      this.label,
+      this.validator,
+      this.keyboardType,
+      this.onSaved,
+      this.isOptional})
       : super(key: key);
 
   @override
@@ -281,6 +415,7 @@ class _FormBoxState extends State<FormBox> {
         child: TextFormField(
           style: formTypedText,
           decoration: InputDecoration(
+            helperText: widget.isOptional ? "Optional" : null,
             labelText: widget.label,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
