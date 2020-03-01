@@ -39,7 +39,7 @@ class _BikeListElementState extends State<BikeListElement> {
                       child: Column(
                         children: <Widget>[
                           Line(header: "RahmenNummer", value: widget.bike.rahmenNummer),
-                          Line(header: "RegisterDate", value: DateTime.fromMillisecondsSinceEpoch(widget.bike.idData.registerDate).toLocal().toString()), // TODO convert to Date
+                          Line(header: "RegisterDate", value: DateTime.fromMillisecondsSinceEpoch(widget.bike.idData.registerDate).toLocal().toString()), 
                           Line(header: "Modell", value: widget.bike.idData.modell),
                           Line(header: "Art", value: widget.bike.idData.art),
                           Line(header: "Größe", value: widget.bike.idData.groesse),
