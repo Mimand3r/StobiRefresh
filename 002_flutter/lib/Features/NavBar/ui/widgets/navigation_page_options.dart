@@ -45,6 +45,7 @@ class _NavPageOptionsState extends State<NavPageOptions> {
                 GestureDetector(
                   onTap: () => pageClicked(Pages.myBikes),
                   child: Container(
+                    color: Colors.transparent,
                     width: 70.0,
                     height: 40.0,
                     child: Center(
@@ -61,6 +62,7 @@ class _NavPageOptionsState extends State<NavPageOptions> {
                 GestureDetector(
                   onTap: () => pageClicked(Pages.search),
                   child: Container(
+                    color: Colors.transparent,
                     width: 70.0,
                     height: 40.0,
                     child: Center(
@@ -78,6 +80,7 @@ class _NavPageOptionsState extends State<NavPageOptions> {
                 GestureDetector(
                   onTap: () => pageClicked(Pages.chats),
                   child: Container(
+                    color: Colors.transparent,
                     width: 70.0,
                     height: 40.0,
                     child: Center(
