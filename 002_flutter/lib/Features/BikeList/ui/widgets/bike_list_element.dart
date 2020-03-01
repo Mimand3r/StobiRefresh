@@ -199,9 +199,7 @@ class _BikePicturesState extends State<BikePictures> {
           pic,
         ),
       ));
-       picList.add(SizedBox(
-        width: 2
-      ));
+      picList.add(SizedBox(width: 2));
     }
 
     return Column(
