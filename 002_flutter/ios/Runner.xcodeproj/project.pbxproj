@@ -413,7 +413,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.heino.projectstobi;
 				PRODUCT_NAME = Runner;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -545,7 +545,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.heino.projectstobi;
 				PRODUCT_NAME = Runner;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -571,7 +571,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.heino.projectstobi;
 				PRODUCT_NAME = Runner;
 				VERSIONING_SYSTEM = "apple-generic";
