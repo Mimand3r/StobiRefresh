@@ -10,11 +10,11 @@ import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_w
 
 import 'firestore_worker.dart';
 
-class MessagingModule {
+class MessagingModuleDepricated {
 
   // Singleton
-  MessagingModule._privateConstructor();
-  static final MessagingModule instance = MessagingModule._privateConstructor();
+  MessagingModuleDepricated._privateConstructor();
+  static final MessagingModuleDepricated instance = MessagingModuleDepricated._privateConstructor();
 
   final FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();

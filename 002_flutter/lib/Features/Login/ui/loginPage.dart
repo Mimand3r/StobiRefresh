@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/Login/state/auth_module.dart';
 import 'package:project_stobi/Features/Login/ui/ask_for_name_helper.dart';
 import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
-import 'package:project_stobi/Features/MainPage/ui/mainPage.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
+import 'package:project_stobi/Features/MainPage/ui/startPage.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
               );
 
             // return MainPageDepricated(osData: osData, user: user);
-            return MainPage();
+            return StartPage();
           },
         );
       },

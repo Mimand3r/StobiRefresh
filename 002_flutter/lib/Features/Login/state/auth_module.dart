@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,7 +49,7 @@ class AuthModule with ChangeNotifier {
     prefs.setString("uId", authUser.uid);
 
     var newUser = FbaseUser(
-        bikes: createNewUserDummyBikeList(),
+        bikes: createNewUserDummyBikeList(authUser.uid),
         name: name,
         uId: authUser.uid,
         photoUrl: null,
@@ -66,25 +67,25 @@ class AuthModule with ChangeNotifier {
     return newUser;
   }
 
-  List<Bike> createNewUserDummyBikeList() {
-    var newUserBikeList = new List<Bike>();
+  List<FbaseBike> createNewUserDummyBikeList(String uId) {
+    var newUserBikeList = new List<FbaseBike>();
 
-    for (var i = 0; i < 10; i++) {
-      var dummyBike = new Bike()
-        ..rahmenNummer = "dummyBike " + (i + 1).toString();
+    for (var i = 1; i <= 9; i++) {
+      var dummyBike = new FbaseBike(currentOwner: uId)
+        ..rahmenNummer = uId + i.toString();
+      if (i != 9) dummyBike.pictures = <String>["bike00${i.toString()}.jpg"];
       dummyBike.idData = new BikeIdData(
-          name: "Dummy Bike " + (i + 1).toString(),
+          name: "Beispiel Fahrrad " + i.toString(),
           art: "Mountainbike",
-          farbe: "Dummy Farben",
-          groesse: "gigantisch",
-          hersteller: "Dummy Fabrikant",
-          modell: "Dummy 03",
+          farbe: "Blau",
+          groesse: "176cm",
+          hersteller: "Triban",
+          modell: "RC 100",
           registerDate: 0,
-          beschreibung: "Ein Dummy Fahrrad");
-      dummyBike.versicherungsData = BikeVersicherungsData(
-        nummer: "111",
-        gesellschaft: "AOV"
-      );
+          beschreibung:
+              "Ein hypotethisches Beispiel-Fahrrad. Existiert nicht real");
+      dummyBike.versicherungsData =
+          BikeVersicherungsData(nummer: "111", gesellschaft: "AOV");
 
       newUserBikeList.add(dummyBike);
     }

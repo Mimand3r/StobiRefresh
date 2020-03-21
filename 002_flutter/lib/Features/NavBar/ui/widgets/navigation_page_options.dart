@@ -4,31 +4,40 @@ import 'package:project_stobi/Features/NavBar/ui/config/textStyles.dart';
 import 'package:provider/provider.dart';
 
 class NavPageOptions extends StatefulWidget {
+  final int chosenElement;
+
+  const NavPageOptions(this.chosenElement, {Key key}) : super(key: key);
+
   @override
   _NavPageOptionsState createState() => _NavPageOptionsState();
 }
 
 class _NavPageOptionsState extends State<NavPageOptions> {
   void pageClicked(Pages page) {
+    if (widget.chosenElement == 1 && page == Pages.myBikes) return;
+    if (widget.chosenElement == 2 && page == Pages.search) return;
+    if (widget.chosenElement == 3 && page == Pages.chats) return;
+
     final navbarManager = Provider.of<SmNavbar>(context, listen: false);
-    navbarManager.activePage = page;
-    navbarManager.updateNavBar();
+    navbarManager.switchToPage(context, page);
   }
 
   Widget createUnderline(Pages page) {
-    return Consumer<SmNavbar>(
-      builder: (con, state, ch) {
-        if (state.activePage != page) return Container();
+    var isUnderlined = false;
+    if (widget.chosenElement == 1 && page == Pages.myBikes) isUnderlined = true;
+    if (widget.chosenElement == 2 && page == Pages.search) isUnderlined = true;
+    if (widget.chosenElement == 3 && page == Pages.chats) isUnderlined = true;
 
-        return Transform.translate(
-          offset: Offset(0.0, -3.0),
-          child: Divider(
-            thickness: 1.5,
-            color: Colors.black.withAlpha(150),
-          ),
-        );
-      },
-    );
+    if (isUnderlined)
+      return Transform.translate(
+        offset: Offset(0.0, -3.0),
+        child: Divider(
+          thickness: 1.5,
+          color: Colors.black.withAlpha(150),
+        ),
+      );
+    else
+      return Container();
   }
 
   @override

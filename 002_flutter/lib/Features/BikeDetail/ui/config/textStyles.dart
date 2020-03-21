@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 // );
 // TextStyle myBikesLight = new TextStyle();
 
-TextStyle bikeName = new TextStyle(
-  fontWeight: FontWeight.bold
+TextStyle fieldStyle = new TextStyle(
 );
 

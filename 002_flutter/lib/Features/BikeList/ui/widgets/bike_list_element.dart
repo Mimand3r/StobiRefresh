@@ -1,12 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:project_stobi/Features/BikeDetail/ui/page_bike_detail.dart';
 import 'package:project_stobi/Features/BikeList/ui/configs/textStyles.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
 
 class BikeListElement extends StatefulWidget {
-  final Bike bike;
+  final FbaseBike bike;
 
   const BikeListElement({Key key, this.bike}) : super(key: key);
 
@@ -15,8 +17,6 @@ class BikeListElement extends StatefulWidget {
 }
 
 class _BikeListElementState extends State<BikeListElement> {
-  void arrowKlicked() {}
-
   @override
   void initState() {
     downloadAllPictues();
@@ -24,20 +24,40 @@ class _BikeListElementState extends State<BikeListElement> {
   }
 
   List<File> pictures;
+  Image firstPicture;
 
   Future downloadAllPictues() async {
     var bikePictures = widget.bike.pictures;
-    if (bikePictures == null) return;
-    if (bikePictures.length == 0) return;
 
     pictures = <File>[];
+    if (bikePictures != null)
+      for (var i = 0; i < bikePictures.length; i++) {
+        var pic =
+            await FireStoreWorker.downloadPictureFromStorage(bikePictures[i]);
+        pictures.add(pic);
+      }
 
-    for (var i = 0; i < bikePictures.length; i++) {
-      var pic =
-          await FireStoreWorker.downloadPictureFromStorage(bikePictures[i]);
-      pictures.add(pic);
-    }
-    setState(() {});
+    if (pictures == null || pictures.length == 0) {
+      var pic = Image.asset("assets/pictures/NoPictures.png",
+          height: 100, width: 100);
+      firstPicture = pic;
+      // await new Future.delayed(const Duration(milliseconds: 3000));
+    } else
+      firstPicture = Image.file(pictures[0]);
+
+    while (firstPicture == null)
+      await new Future.delayed(const Duration(milliseconds: 20));
+
+    if (mounted) setState(() {});
+  }
+
+  void arrowKlicked() {
+    Navigator.of(context).push(new MaterialPageRoute(
+        builder: (x) => PageBikeDetail(
+              bike: widget.bike,
+              firstPicture: firstPicture,
+              pictures: pictures,
+            )));
   }
 
   @override
@@ -48,63 +68,65 @@ class _BikeListElementState extends State<BikeListElement> {
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Container(
             width: double.infinity,
-            height: 120,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: 0.7,
-              ),
-            ),
-            child: Row(
+            height: 140,
+            child: Stack(
               children: <Widget>[
-                Expanded(
-                  flex: 4,
-                  child: Container(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          Line(header: "Name", value: widget.bike.idData.name),
-                          Line(
-                              header: "RahmenNr",
-                              value: widget.bike.rahmenNummer),
-                          Line(
-                              header: "Registriert",
-                              value: DateTime.fromMillisecondsSinceEpoch(
-                                      widget.bike.idData.registerDate)
-                                  .toLocal()
-                                  .toString()
-                                  .split(".")[0]),
-                          Line(
-                              header: "Modell",
-                              value: widget.bike.idData.modell),
-                          Line(header: "Art", value: widget.bike.idData.art),
-                          Line(
-                              header: "Größe",
-                              value: widget.bike.idData.groesse),
-                          Line(
-                              header: "Farbe", value: widget.bike.idData.farbe),
-                          Line(
-                              header: "Hersteller",
-                              value: widget.bike.idData.hersteller),
-                          Line(
-                              header: "Versicherung",
-                              value:
-                                  widget.bike.versicherungsData.gesellschaft),
-                          BikePictures(pictures)
-                        ],
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(children: <Widget>[
+                          widget.bike.idData.name != null
+                              ? Text(
+                                  widget.bike.idData.name,
+                                  style: bikeName,
+                                )
+                              : Text(
+                                  widget.bike.idData.modell,
+                                  style: bikeName,
+                                ),
+                          if (firstPicture != null)
+                            Expanded(
+                                child: Container(
+                              child: Hero(
+                                tag: widget.bike.rahmenNummer,
+                                child: firstPicture,
+                              ),
+                            ))
+                          // else
+                          //   Image.asset("assets/pictures/image_loading_gif.gif")
+                        ]),
                       ),
                     ),
-                  ),
+                    Expanded(
+                      flex: 1,
+                      child: GestureDetector(
+                        onTap: arrowKlicked,
+                        child: Container(
+                          child: Center(
+                            child: Icon(
+                              Icons.keyboard_arrow_right,
+                              size: 48,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    onTap: arrowKlicked,
+                IgnorePointer(
+                  ignoring: true,
+                  child: Hero(
+                    tag: "border_${widget.bike.rahmenNummer}",
                     child: Container(
-                      child: Center(
-                        child: Icon(
-                          Icons.keyboard_arrow_right,
-                          size: 48,
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 0.7,
                         ),
                       ),
                     ),
@@ -122,121 +144,122 @@ class _BikeListElementState extends State<BikeListElement> {
   }
 }
 
-class Line extends StatefulWidget {
-  const Line({Key key, @required this.header, @required this.value})
-      : super(key: key);
+// depricated
+// class Line extends StatefulWidget {
+//   const Line({Key key, @required this.header, @required this.value})
+//       : super(key: key);
 
-  @override
-  _LineState createState() => _LineState();
+//   @override
+//   _LineState createState() => _LineState();
 
-  final String header;
-  final String value;
-}
+//   final String header;
+//   final String value;
+// }
 
-class _LineState extends State<Line> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 5,
-        ),
-        Row(
-          children: <Widget>[
-            Flexible(
-                flex: 2,
-                child: Container(
-                  height: 25,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        widget.header,
-                        style: myBikesLight,
-                      ),
-                    ],
-                  ),
-                )),
-            Flexible(
-                flex: 3,
-                child: Container(
-                  height: 25,
-                  child: Center(
-                      child: Text(
-                    widget.value,
-                    style: myBikesStrong,
-                  )),
-                ))
-          ],
-        ),
-      ],
-    );
-  }
-}
+// // class _LineState extends State<Line> {
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Column(
+// //       children: <Widget>[
+// //         SizedBox(
+// //           height: 5,
+// //         ),
+// //         Row(
+// //           children: <Widget>[
+// //             Flexible(
+// //                 flex: 2,
+// //                 child: Container(
+// //                   height: 25,
+// //                   child: Row(
+// //                     children: <Widget>[
+// //                       SizedBox(
+// //                         width: 10,
+// //                       ),
+// //                       Text(
+// //                         widget.header,
+// //                         style: myBikesLight,
+// //                       ),
+// //                     ],
+// //                   ),
+// //                 )),
+// //             Flexible(
+// //                 flex: 3,
+// //                 child: Container(
+// //                   height: 25,
+// //                   child: Center(
+// //                       child: Text(
+// //                     widget.value,
+// //                     style: myBikesStrong,
+// //                   )),
+// //                 ))
+// //           ],
+// //         ),
+// //       ],
+// //     );
+// //   }
+// // }
 
-class BikePictures extends StatefulWidget {
-  final List<File> pictures;
+// class BikePictures extends StatefulWidget {
+//   final List<File> pictures;
 
-  const BikePictures(this.pictures, {Key key}) : super(key: key);
+//   const BikePictures(this.pictures, {Key key}) : super(key: key);
 
-  @override
-  _BikePicturesState createState() => _BikePicturesState();
-}
+//   @override
+//   _BikePicturesState createState() => _BikePicturesState();
+// }
 
-class _BikePicturesState extends State<BikePictures> {
-  @override
-  Widget build(BuildContext context) {
-    if (widget.pictures == null) return Container();
-    if (widget.pictures.length == 0) return Container();
+// class _BikePicturesState extends State<BikePictures> {
+//   @override
+//   Widget build(BuildContext context) {
+//     if (widget.pictures == null) return Container();
+//     if (widget.pictures.length == 0) return Container();
 
-    var picList = <Widget>[];
-    for (var pic in widget.pictures) {
-      picList.add(Container(
-        width: 40,
-        child: Image.file(
-          pic,
-        ),
-      ));
-      picList.add(SizedBox(width: 2));
-    }
+//     var picList = <Widget>[];
+//     for (var pic in widget.pictures) {
+//       picList.add(Container(
+//         width: 40,
+//         child: Image.file(
+//           pic,
+//         ),
+//       ));
+//       picList.add(SizedBox(width: 2));
+//     }
 
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 5,
-        ),
-        Row(
-          children: <Widget>[
-            Flexible(
-                flex: 2,
-                child: Container(
-                  height: 25,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Bilder x${widget.pictures.length}",
-                        style: myBikesLight,
-                      ),
-                    ],
-                  ),
-                )),
-            Flexible(
-                flex: 3,
-                child: Container(
-                  height: 25,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(children: picList),
-                  ),
-                ))
-          ],
-        ),
-      ],
-    );
-  }
-}
+//     return Column(
+//       children: <Widget>[
+//         SizedBox(
+//           height: 5,
+//         ),
+//         Row(
+//           children: <Widget>[
+//             Flexible(
+//                 flex: 2,
+//                 child: Container(
+//                   height: 25,
+//                   child: Row(
+//                     children: <Widget>[
+//                       SizedBox(
+//                         width: 10,
+//                       ),
+//                       Text(
+//                         "Bilder x${widget.pictures.length}",
+//                         style: myBikesLight,
+//                       ),
+//                     ],
+//                   ),
+//                 )),
+//             Flexible(
+//                 flex: 3,
+//                 child: Container(
+//                   height: 25,
+//                   child: SingleChildScrollView(
+//                     scrollDirection: Axis.horizontal,
+//                     child: Row(children: picList),
+//                   ),
+//                 ))
+//           ],
+//         ),
+//       ],
+//     );
+//   }
+// }

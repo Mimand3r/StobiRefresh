@@ -10,7 +10,7 @@ class AddElement extends StatefulWidget {
 class _AddElementState extends State<AddElement> {
   void addBikeGotPressed() {
     final manager = Provider.of<SmNavbar>(context,listen: false);
-    manager.switchToAddBikePage(context);
+    manager.switchToPage(context, Pages.addBike);
   }
 
   @override

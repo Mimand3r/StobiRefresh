@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:project_stobi/General/colors.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
+// import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class BikesearchResultPopupDepricated extends StatefulWidget {
   final Bike bike;
@@ -20,7 +20,7 @@ class _BikesearchResultPopupDepricatedState extends State<BikesearchResultPopupD
 
   void kontaktiereBikeBesitzer(BuildContext context){
     widget.kontaktiereUserCallback(widget.bike);
-    NavigationHelper.goBack(context);
+    // NavigationHelper.goBack(context);
   }
 
 

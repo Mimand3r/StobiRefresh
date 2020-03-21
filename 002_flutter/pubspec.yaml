@@ -65,6 +65,7 @@ flutter:
     - assets/pictures/anonymousBike.jpg
     - assets/pictures/anonymousUser.png
     - assets/pictures/NoPictures.png
+
     
 
     - lib/Features/NavBar/assets/stobi_logo.png

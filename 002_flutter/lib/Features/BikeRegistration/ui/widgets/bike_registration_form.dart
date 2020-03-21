@@ -6,8 +6,8 @@ import 'package:project_stobi/Features/BikeRegistration/state/registration_manag
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/colors.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/widgets/form_images.dart';
-import 'package:project_stobi/Features/Login/state/auth_module.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
 import 'package:provider/provider.dart';
 
 class BikeRegistrationForm extends StatefulWidget {
@@ -32,7 +32,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
   String _zubehoer;
   String _beschreibung;
 
-  void addFileClicked() async {
+  void _addFileClicked() async {
     // Open Gallery and Choose Picture
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
@@ -42,7 +42,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
     setState(() => localImageList.add(image));
   }
 
-  void addPhotoClicked() async {
+  void _addPhotoClicked() async {
     // Open Gallery and Choose Picture
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
 
@@ -52,7 +52,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
     setState(() => localImageList.add(image));
   }
 
-  void saveFormClicked() async {
+  void _saveFormClicked() async {
     final form = _formKey.currentState;
 
     if (!form.validate()) return;
@@ -61,7 +61,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
 
     setState(() => currentlySavingBike = true);
 
-    var newBike = Bike(
+    var newBike = FbaseBike(
       rahmenNummer: _rahmennummer,
       idData: BikeIdData(
         name: _name,
@@ -85,7 +85,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
     Navigator.of(context).pop();
   }
 
-  void removePicture(int index) =>
+  void _removePicture(int index) =>
       setState(() => localImageList.removeAt(index));
 
   bool currentlySavingBike = false;
@@ -312,7 +312,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
             ),
             FormLocalImages(
               importedImages: localImageList,
-              removePictureCallback: removePicture,
+              removePictureCallback: _removePicture,
             ),
             SizedBox(
               height: 10,
@@ -321,7 +321,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
-                  onTap: addFileClicked,
+                  onTap: _addFileClicked,
                   child: Container(
                     width: 60,
                     height: 40,
@@ -340,7 +340,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
                   width: 20.0,
                 ),
                 GestureDetector(
-                  onTap: addPhotoClicked,
+                  onTap: _addPhotoClicked,
                   child: Container(
                     width: 60,
                     height: 40,
@@ -361,7 +361,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
               height: 40,
             ),
             GestureDetector(
-              onTap: saveFormClicked,
+              onTap: _saveFormClicked,
               child: Container(
                 width: 260,
                 height: 70,

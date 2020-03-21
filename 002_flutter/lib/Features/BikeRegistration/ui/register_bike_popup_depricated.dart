@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
+// import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class RegisterBikePopupDepricated extends StatefulWidget {
   final double width;
@@ -29,7 +29,7 @@ class _RegisterBikePopupDepricatedState extends State<RegisterBikePopupDepricate
         spitznameController.text == "") return;
     widget.userRegisteredBikeCallback(
         gstlNrController.text, modellController.text, spitznameController.text);
-    NavigationHelper.goBack(context);
+    // NavigationHelper.goBack(context);
   }
 
   @override

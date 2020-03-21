@@ -12,8 +12,8 @@ import 'package:project_stobi/Features/NavBar/ui/settings_dropdown_depricated.da
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/messaging_module.dart';
-import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/messaging_module_depricated.dart';
+// import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class MainPageDepricated extends StatefulWidget {
   MainPageDepricated({Key key, @required this.osData, @required this.user})
@@ -48,7 +48,7 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
     calculateNavbarPageRatio();
     loadUserBikeList();
     loadUserConversationList();
-    MessagingModule.instance.init(user.uId, messageArrived);
+    MessagingModuleDepricated.instance.init(user.uId, messageArrived);
   }
 
   double topAreaHeight;
@@ -112,15 +112,15 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
         duration: Duration(seconds: 4),
       ));
     else {
-      NavigationHelper.navigateTo(
-          context,
-          BikesearchResultPopupDepricated(
-            bike: newBike,
-            user: user,
-            kontaktiereUserCallback: (b) async {
-              await userWillBesitzerKontaktieren(context, b);
-            },
-          ));
+      // NavigationHelper.navigateTo(
+      //     context,
+      //     BikesearchResultPopupDepricated(
+      //       bike: newBike,
+      //       user: user,
+      //       kontaktiereUserCallback: (b) async {
+      //         await userWillBesitzerKontaktieren(context, b);
+      //       },
+      //     ));
     }
   }
 
@@ -146,13 +146,13 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
 
   void elementChosenInSettingsPopup(PopupPages elementId) {
     if (elementId == PopupPages.RegisterBikePage) {
-      NavigationHelper.navigateTo(
-          context,
-          RegisterBikePopupDepricated(
-              width: widget.osData.size.width,
-              userRegisteredBikeCallback: (s, t, u) async {
-                await userRegisteredNewBike(context, s, t, u);
-              }));
+      // NavigationHelper.navigateTo(
+      //     context,
+      //     RegisterBikePopupDepricated(
+      //         width: widget.osData.size.width,
+      //         userRegisteredBikeCallback: (s, t, u) async {
+      //           await userRegisteredNewBike(context, s, t, u);
+      //         }));
     }
   }
 
@@ -194,15 +194,15 @@ class _MainPageDepricatedState extends State<MainPageDepricated> {
       });
       await loadUserConversationList();
     });
-    NavigationHelper.navigateTo(
-        context,
-        ChatPopupDepricated(
-          height: widget.osData.size.height,
-          width: widget.osData.size.width,
-          conversationData: conv,
-          user: widget.user,
-          chatPartnerId: partnerId,
-        ));
+    // NavigationHelper.navigateTo(
+    //     context,
+    //     ChatPopupDepricated(
+    //       height: widget.osData.size.height,
+    //       width: widget.osData.size.width,
+    //       conversationData: conv,
+    //       user: widget.user,
+    //       chatPartnerId: partnerId,
+    //     ));
   }
 
   @override

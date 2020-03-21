@@ -3,13 +3,14 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:project_stobi/Features/Login/state/auth_module.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/fbaseUser.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
 
 class SmRegistrationManager with ChangeNotifier {
 
 
-  Future registerBike(Bike bikeData, List<File> pictureData) async {
+  Future registerBike(FbaseBike bikeData, List<File> pictureData) async {
 
     // Upload Each Picture to Storage and store urls
     var urlList = <String>[];
@@ -24,6 +25,7 @@ class SmRegistrationManager with ChangeNotifier {
 
     // Put BikeData into UserList and invoke rewrite
     var oldUserData = AuthModule.instance.getLoggedInUser();
+    bikeData.currentOwner = oldUserData.uId;
     oldUserData.bikes.add(bikeData);
     await AuthModule.instance.changeUserData(oldUserData);
     
