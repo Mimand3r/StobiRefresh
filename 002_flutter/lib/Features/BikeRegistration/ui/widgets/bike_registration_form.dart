@@ -6,8 +6,8 @@ import 'package:project_stobi/Features/BikeRegistration/state/registration_manag
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/colors.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/widgets/form_images.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
 import 'package:provider/provider.dart';
 
 class BikeRegistrationForm extends StatefulWidget {
@@ -61,8 +61,9 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
 
     setState(() => currentlySavingBike = true);
 
-    var newBike = FbaseBike(
+    var newBike = E_Bike(
       rahmenNummer: _rahmennummer,
+      registeredAsStolen: false,
       idData: BikeIdData(
         name: _name,
         art: _art,
@@ -80,7 +81,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
 
     var regManager = Provider.of<SmRegistrationManager>(context, listen: false);
 
-    await regManager.registerBike(newBike, localImageList);
+    await regManager.registerBike(context, newBike, localImageList);
 
     Navigator.of(context).pop();
   }

@@ -1,38 +1,21 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
-import 'package:project_stobi/Features/Login/state/auth_module.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
-import 'package:provider/provider.dart';
+import 'package:project_stobi/Managers/UserManager.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_transfer_worker.dart';
 
 class SmTransfer with ChangeNotifier {
-  Future createNewBikePIN(
-      FbaseBike bike, String emfaengerName) async {
-    var userData = AuthModule.instance.getLoggedInUser();
+  Future createNewBikePIN(E_Bike bike, String emfaengerName) async =>
+      await bike.generateNewPIN(purpose: emfaengerName);
 
-    var newPin = await BikeTransferData.generateNewPin(
-        emfaengerName, userData.name, bike.rahmenNummer, userData.uId);
-
-    await FireStoreWorker.storeNewPinDataForBike(bike, userData, newPin);
+  Future deleteBikePIN(E_Bike bike) async {
+    await bike.removeBikePIN();
   }
 
-  Future deleteBikePIN(FbaseBike bike) async {
-    await FireStoreWorker.removeBikePinData(bike);
+  Future<E_Bike> tryGetABikeFromPIN(String pin) async => E_Bike.fromMBike(
+      await FirestoreBiketransferWorker.getBikeDataFromPin(pin));
+
+  Future transferBikeToMyself(E_Bike bike, List<Image> pictures) async {
+    await UserManager.instance
+        .transferBikeFromPreviousUserToCurrent(bike, pictures);
   }
-
-  Future<FbaseBike> checkIfPinIsValid(String pin) async {
-
-  }
-
-  Future<bool> transferBikeFromUserAToB(FbaseBike bike, String aUId, String bUId){
-    
-  }
-
-  // Future<PINEinloeseResult> loesePINEin() async{
-
-  // }
 }
-

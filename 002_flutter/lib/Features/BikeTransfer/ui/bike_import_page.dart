@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:project_stobi/Features/BikeTransfer/state/transfer_manager.dart';
 import 'package:project_stobi/Features/BikeTransfer/ui/widgets/make_final_bike_transfer.dart';
 import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
 import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/Managers/UserManager.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:provider/provider.dart';
 
 class BikeImportPage extends StatefulWidget {
   @override
@@ -10,18 +13,34 @@ class BikeImportPage extends StatefulWidget {
 }
 
 class _BikeImportPageState extends State<BikeImportPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   void _pinEinloesenKlicked(BuildContext context) async {
     if (controller.text.length == 0) return;
     setState(() => currentlyCheckingPIN = true);
   }
 
   // Returns null when PIN is unvalid
-  Future<FbaseBike> validatePIN() async { // Invoked by FutureBuilder
-
+  Future<E_Bike> validatePIN() async {
+    // Invoked by FutureBuilder
     var pin = controller.text;
+    var prov = Provider.of<SmTransfer>(context, listen: false);
+    var newBike = await prov.tryGetABikeFromPIN(pin);
+    return newBike;
+  }
 
-    await Future.delayed(Duration(seconds: 3));
-    return FbaseBike();
+  void pinWarUngueltig(BuildContext c) {
+    Scaffold.of(c).showSnackBar(SnackBar(content: Text("Pin war ungültig")));
+    controller.clear();
+    setState(() => currentlyCheckingPIN = false);
+  }
+
+  void pinGehoertDirSelbst(BuildContext c) {
+    Scaffold.of(c).showSnackBar(SnackBar(
+        content: Text(
+            "Pin gehört zu einem deiner Fahrräder.\nBitte gebe den PIN eines anderen Users ein.")));
+    controller.clear();
+    setState(() => currentlyCheckingPIN = false);
   }
 
   var controller = TextEditingController();
@@ -30,6 +49,7 @@ class _BikeImportPageState extends State<BikeImportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SafeArea(
           child: NavBar(
         showAddElement: false,
@@ -73,7 +93,7 @@ class _BikeImportPageState extends State<BikeImportPage> {
                     ],
                   ),
                 );
-              return FutureBuilder<FbaseBike>(
+              return FutureBuilder<E_Bike>(
                   future: validatePIN(),
                   builder: (c, snap) {
                     if (snap.connectionState != ConnectionState.done)
@@ -81,16 +101,30 @@ class _BikeImportPageState extends State<BikeImportPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           CircularProgressIndicator(),
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Text("PIN wird geprüft"),
                         ],
                       );
 
-                    if (snap.data == null) 
-                      return Center(child: Text("Eingegebener PIN war ungültig"));
+                    if (snap.data == null)
+                      return Builder(builder: (c) {
+                        WidgetsBinding.instance
+                            .addPostFrameCallback((_) => pinWarUngueltig(c));
+                        return Center();
+                      });
 
-                    return MakeFinalBikeTransfer(pin: controller.text, bike: snap.data);
-                    
+                    if (snap.data.currentOwnerId ==
+                        UserManager.instance.getCurrentUser.uId)
+                      return Builder(builder: (c) {
+                        WidgetsBinding.instance.addPostFrameCallback(
+                            (_) => pinGehoertDirSelbst(c));
+                        return Center();
+                      });
+
+                    return MakeFinalBikeTransfer(
+                        pin: controller.text, bike: snap.data);
                   });
             })),
       )),

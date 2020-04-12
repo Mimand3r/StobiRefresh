@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeTransfer/state/transfer_manager.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 import 'package:provider/provider.dart';
 
-class PinExistsArea extends StatefulWidget {
-  final FbaseBike bike;
+class BikeHasPINArea extends StatefulWidget {
+  final E_Bike bike;
   final void Function() pinGotRemoved;
 
-  const PinExistsArea({Key key, this.bike, this.pinGotRemoved})
+  const BikeHasPINArea({Key key, this.bike, this.pinGotRemoved})
       : super(key: key);
 
   @override
-  _PinExistsAreaState createState() => _PinExistsAreaState();
+  _BikeHasPINAreaState createState() => _BikeHasPINAreaState();
 }
 
-class _PinExistsAreaState extends State<PinExistsArea> {
+class _BikeHasPINAreaState extends State<BikeHasPINArea> {
   void _deletePinKlicked() async {
     var prov = Provider.of<SmTransfer>(context, listen: false);
     setState(() => deletingPin = true);
@@ -81,7 +81,7 @@ class _PinExistsAreaState extends State<PinExistsArea> {
             Text(
               "generiert am: " +
                   _convertMillisecondsToDateString(
-                      widget.bike.transferData.date_milliseconds),
+                      widget.bike.transferData.creation_date_millisecs),
               style: TextStyle(fontSize: 11.0),
             ),
             SizedBox(

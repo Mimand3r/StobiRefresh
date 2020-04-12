@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeTransfer/state/transfer_manager.dart';
 import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 import 'package:provider/provider.dart';
 
 class CreateNewPinArea extends StatefulWidget {
-  final FbaseBike bike;
+  final E_Bike bike;
   final void Function() pinGotCreated;
 
   const CreateNewPinArea({Key key, this.bike, this.pinGotCreated}) : super(key: key);
@@ -15,6 +15,7 @@ class CreateNewPinArea extends StatefulWidget {
 }
 
 class _CreateNewPinAreaState extends State<CreateNewPinArea> {
+  
   void _createPinKlicked() async {
     if (textController.text.length == 0) {
       Scaffold.of(context).showSnackBar(SnackBar(

@@ -33,13 +33,13 @@ class _PageMyBikesState extends State<PageMyBikes> {
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
                   child: Consumer<SmUserBikeList>(
                     builder: (con, state, child) {
-                      var bikeList = state.getUserBikes();
+                      var bikeList = state.getUserBikes;
                       var bikeWidgets = <Widget>[
                         for (var i = 0; i < bikeList.length; i++)
                           BikeListElement(bike: bikeList[i])
                       ];
-
-                      if (bikeList.length == 0)
+        
+                      if (bikeList == null || bikeList.length == 0)
                         return Center(
                           child: Text("Noch keine bikes"),
                         );

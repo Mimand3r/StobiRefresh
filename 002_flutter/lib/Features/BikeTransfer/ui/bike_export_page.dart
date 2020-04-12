@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeTransfer/configs/textStyles.dart';
 import 'package:project_stobi/Features/BikeTransfer/ui/widgets/create_new_pin_area.dart';
-import 'package:project_stobi/Features/BikeTransfer/ui/widgets/pin_already_exists_area.dart';
+import 'package:project_stobi/Features/BikeTransfer/ui/widgets/bike_has_pin_area.dart';
 import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
 import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 
 class BikeExportPage extends StatefulWidget {
-  final FbaseBike bike;
+  final E_Bike bike;
   final Image firstPicture;
 
   const BikeExportPage(
@@ -87,7 +86,7 @@ class _BikeExportPageState extends State<BikeExportPage> {
                     height: 8,
                   ),
                   if (widget.bike.transferData != null)
-                    PinExistsArea(
+                    BikeHasPINArea(
                       bike: widget.bike,
                       pinGotRemoved: () {
                         setState(() {});

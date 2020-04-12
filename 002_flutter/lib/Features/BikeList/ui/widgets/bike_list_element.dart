@@ -2,13 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeDetail/ui/page_bike_detail.dart';
+import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
 import 'package:project_stobi/Features/BikeList/ui/configs/textStyles.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/storage_picture_worker.dart';
+import 'package:provider/provider.dart';
 
 class BikeListElement extends StatefulWidget {
-  final FbaseBike bike;
+  final E_Bike bike;
 
   const BikeListElement({Key key, this.bike}) : super(key: key);
 
@@ -19,45 +20,12 @@ class BikeListElement extends StatefulWidget {
 class _BikeListElementState extends State<BikeListElement> {
   @override
   void initState() {
-    downloadAllPictues();
     super.initState();
-  }
-
-  List<File> pictures;
-  Image firstPicture;
-
-  Future downloadAllPictues() async {
-    var bikePictures = widget.bike.pictures;
-
-    pictures = <File>[];
-    if (bikePictures != null)
-      for (var i = 0; i < bikePictures.length; i++) {
-        var pic =
-            await FireStoreWorker.downloadPictureFromStorage(bikePictures[i]);
-        pictures.add(pic);
-      }
-
-    if (pictures == null || pictures.length == 0) {
-      var pic = Image.asset("assets/pictures/NoPictures.png",
-          height: 100, width: 100);
-      firstPicture = pic;
-      // await new Future.delayed(const Duration(milliseconds: 3000));
-    } else
-      firstPicture = Image.file(pictures[0]);
-
-    while (firstPicture == null)
-      await new Future.delayed(const Duration(milliseconds: 20));
-
-    if (mounted) setState(() {});
   }
 
   void arrowKlicked() {
     Navigator.of(context).push(new MaterialPageRoute(
-        builder: (x) => PageBikeDetail(
-              bike: widget.bike,
-              firstPicture: firstPicture,
-              pictures: pictures,
-            )));
+        builder: (x) => PageBikeDetail(bike: widget.bike)));
   }
 
   @override
@@ -87,14 +55,21 @@ class _BikeListElementState extends State<BikeListElement> {
                                   widget.bike.idData.modell,
                                   style: bikeName,
                                 ),
-                          if (firstPicture != null)
-                            Expanded(
+
+                          Consumer<SmUserBikeList>(
+                            builder: (con, state, child) {
+                              print("builded");
+                              return Expanded(
                                 child: Container(
-                              child: Hero(
-                                tag: widget.bike.rahmenNummer,
-                                child: firstPicture,
-                              ),
-                            ))
+                                  child: Hero(
+                                      tag: widget.bike.rahmenNummer,
+                                      child:
+                                          state.getPicturesForSpecificOwnedBike(
+                                              widget.bike.rahmenNummer)[0]),
+                                ),
+                              );
+                            },
+                          )
                           // else
                           //   Image.asset("assets/pictures/image_loading_gif.gif")
                         ]),

@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
 import 'package:project_stobi/Features/BikeList/ui/page_mybikes.dart';
 import 'package:project_stobi/Features/BikeRegistration/ui/bike_registration_page.dart';
 import 'package:project_stobi/Features/BikeSearch/ui/page_bike_search.dart';
 import 'package:project_stobi/Features/BikeTransfer/ui/bike_export_page.dart';
 import 'package:project_stobi/Features/Chat/ui/chat_page.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:provider/provider.dart';
 
 class SmNavbar with ChangeNotifier {
   void switchToPage(BuildContext context, Pages page) {
@@ -36,14 +37,14 @@ class SmNavbar with ChangeNotifier {
     }
   }
 
-  FbaseBike selectedBike;
-  Image selectedBikePicture;
+  E_Bike selectedBike;
 
   void switchToExportBikePage(BuildContext context) {
+    var bikeList = Provider.of<SmUserBikeList>(context, listen: false);
     Navigator.of(context).push(MaterialPageRoute(
         builder: (c) => BikeExportPage(
               bike: selectedBike,
-              firstPicture: selectedBikePicture,
+              firstPicture: bikeList.getPicturesForSpecificOwnedBike(selectedBike.rahmenNummer)[0],
             )));
   }
 

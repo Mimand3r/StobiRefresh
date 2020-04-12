@@ -3,35 +3,28 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeDetail/ui/config/textStyles.dart';
 import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
-import 'package:project_stobi/Features/BikeList/ui/widgets/bike_list_element.dart';
 import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
 import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
 import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/datatype_user.dart';
+import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 import 'package:provider/provider.dart';
 
 class PageBikeDetail extends StatefulWidget {
-  final FbaseBike bike;
-  final List<File> pictures;
-  final Image firstPicture;
+  final E_Bike bike;
 
-  const PageBikeDetail({Key key, this.bike, this.pictures, this.firstPicture})
-      : super(key: key);
+  const PageBikeDetail({Key key, this.bike}) : super(key: key);
 
   @override
   _PageBikeDetailState createState() => _PageBikeDetailState();
 }
 
 class _PageBikeDetailState extends State<PageBikeDetail> {
-
   @override
   void initState() {
     super.initState();
 
     var prov = Provider.of<SmNavbar>(context, listen: false);
     prov.selectedBike = widget.bike;
-    prov.selectedBikePicture = widget.firstPicture;
   }
 
   @override
@@ -64,9 +57,13 @@ class _PageBikeDetailState extends State<PageBikeDetail> {
                             Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Center(
-                                child: Hero(
-                                  tag: widget.bike.rahmenNummer,
-                                  child: widget.firstPicture,
+                                child: Consumer<SmUserBikeList>(
+                                  builder: (con, state, child) {
+                                    return Hero(
+                                      tag: widget.bike.rahmenNummer,
+                                      child: state.getPicturesForSpecificOwnedBike(widget.bike.rahmenNummer)[0],
+                                    );
+                                  },
                                 ),
                               ),
                             ),
