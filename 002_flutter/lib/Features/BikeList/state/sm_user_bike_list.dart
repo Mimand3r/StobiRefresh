@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 
 class SmUserBikeList with ChangeNotifier {
   List<E_Bike> _userBikes = new List<E_Bike>();

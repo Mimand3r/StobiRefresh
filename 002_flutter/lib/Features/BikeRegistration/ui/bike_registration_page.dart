@@ -1,10 +1,10 @@
-import 'package:project_stobi/General/colors.dart';
+import 'package:STOBI/General/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/widgets/bike_registration_form.dart';
-import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/configs/textStyles.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/widgets/bike_registration_form.dart';
+import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
+import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class BikeRegistrationPage extends StatefulWidget {

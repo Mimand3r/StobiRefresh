@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:project_stobi/Managers/UserManager.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_transfer_worker.dart';
+import 'package:STOBI/Managers/UserManager.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_transfer_worker.dart';
 
 class SmTransfer with ChangeNotifier {
   Future createNewBikePIN(E_Bike bike, String emfaengerName) async =>

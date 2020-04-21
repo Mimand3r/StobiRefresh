@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Managers/BikeDataManager.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_transfer_worker.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_user_worker.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/storage_picture_worker.dart';
+import 'package:STOBI/Managers/BikeDataManager.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_transfer_worker.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_user_worker.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/storage_picture_worker.dart';
 
 class UserManager {
   // Singleton

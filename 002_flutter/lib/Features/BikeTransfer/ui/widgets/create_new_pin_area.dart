@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeTransfer/state/transfer_manager.dart';
-import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/Features/BikeTransfer/state/transfer_manager.dart';
+import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 import 'package:provider/provider.dart';
 
 class CreateNewPinArea extends StatefulWidget {

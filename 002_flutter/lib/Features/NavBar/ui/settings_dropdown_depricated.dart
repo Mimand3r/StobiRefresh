@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/MainPage/ui/mainPage_depricated.dart';
+import 'package:STOBI/Features/MainPage/ui/mainPage_depricated.dart';
 
 class SettingsDropdownDepricated extends StatefulWidget {
   final int activePage;

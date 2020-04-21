@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeDetail/ui/config/textStyles.dart';
-import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
-import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
+import 'package:STOBI/Features/BikeDetail/ui/config/textStyles.dart';
+import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
+import 'package:STOBI/Features/Login/ui/widgets/loading_widget.dart';
+import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
+import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
 import 'package:provider/provider.dart';
 
 class PageBikeDetail extends StatefulWidget {

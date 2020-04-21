@@ -1,7 +1,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
-// import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
-// import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
+// import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+// import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
+// import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 // class AuthModule_depricated {

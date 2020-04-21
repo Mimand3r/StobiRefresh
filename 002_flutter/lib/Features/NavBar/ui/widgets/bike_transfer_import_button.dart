@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeTransfer/ui/bike_import_page.dart';
+import 'package:STOBI/Features/BikeTransfer/ui/bike_import_page.dart';
 
 class BikeTransferImportButton extends StatefulWidget {
   @override

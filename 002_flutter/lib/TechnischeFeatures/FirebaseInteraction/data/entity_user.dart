@@ -1,6 +1,6 @@
 
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_user.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/model_user.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
 import 'entity_bike.dart';
 
 class E_User {

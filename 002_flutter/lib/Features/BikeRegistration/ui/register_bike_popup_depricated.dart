@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/General/colors.dart';
-// import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
+import 'package:STOBI/General/colors.dart';
+// import 'package:STOBI/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class RegisterBikePopupDepricated extends StatefulWidget {
   final double width;

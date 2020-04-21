@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/NavBar/assets/resources.dart';
+import 'package:STOBI/Features/NavBar/assets/resources.dart';
 
 class StobiLogo extends StatelessWidget {
   @override

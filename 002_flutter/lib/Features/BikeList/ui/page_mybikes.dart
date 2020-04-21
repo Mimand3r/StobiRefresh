@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
-import 'package:project_stobi/Features/BikeList/ui/widgets/bike_list_element.dart';
-import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
+import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
+import 'package:STOBI/Features/BikeList/ui/widgets/bike_list_element.dart';
+import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class PageMyBikes extends StatefulWidget {

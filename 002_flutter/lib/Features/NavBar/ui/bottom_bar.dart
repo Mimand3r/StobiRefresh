@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/NavBar/assets/resources.dart';
-import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
+import 'package:STOBI/Features/NavBar/assets/resources.dart';
+import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {

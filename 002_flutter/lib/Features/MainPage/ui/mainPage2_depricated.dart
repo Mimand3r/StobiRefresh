@@ -1,10 +1,10 @@
 // import 'package:flutter/material.dart';
-// import 'package:project_stobi/Features/BikeList/ui/page_mybikes.dart';
-// import 'package:project_stobi/Features/BikeSearch/ui/page_bike_search.dart';
-// import 'package:project_stobi/Features/Chat/ui/chat_page.dart';
-// import 'package:project_stobi/Features/MainPage/ui/startPage.dart';
-// import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-// import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
+// import 'package:STOBI/Features/BikeList/ui/page_mybikes.dart';
+// import 'package:STOBI/Features/BikeSearch/ui/page_bike_search.dart';
+// import 'package:STOBI/Features/Chat/ui/chat_page.dart';
+// import 'package:STOBI/Features/MainPage/ui/startPage.dart';
+// import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
+// import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
 // import 'package:provider/provider.dart';
 
 // class MainPage2Depricated extends StatefulWidget {

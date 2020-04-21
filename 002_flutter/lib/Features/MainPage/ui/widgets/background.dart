@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/General/colors.dart';
+import 'package:STOBI/General/colors.dart';
 
 class Background extends StatelessWidget {
   Background({

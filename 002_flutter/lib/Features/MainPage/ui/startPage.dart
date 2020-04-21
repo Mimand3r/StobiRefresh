@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
-import 'package:project_stobi/Features/Login/state/sm_auth_module.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
-import 'package:project_stobi/Features/MainPage/ui/config/texts.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
+import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
+import 'package:STOBI/Features/Login/state/sm_auth_module.dart';
+import 'package:STOBI/Features/Login/ui/widgets/loading_widget.dart';
+import 'package:STOBI/Features/MainPage/ui/config/texts.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
 import 'package:provider/provider.dart';
 
 class StartPage extends StatefulWidget {

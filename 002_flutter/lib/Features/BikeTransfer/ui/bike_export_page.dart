@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeTransfer/configs/textStyles.dart';
-import 'package:project_stobi/Features/BikeTransfer/ui/widgets/create_new_pin_area.dart';
-import 'package:project_stobi/Features/BikeTransfer/ui/widgets/bike_has_pin_area.dart';
-import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/Features/BikeTransfer/configs/textStyles.dart';
+import 'package:STOBI/Features/BikeTransfer/ui/widgets/create_new_pin_area.dart';
+import 'package:STOBI/Features/BikeTransfer/ui/widgets/bike_has_pin_area.dart';
+import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 
 class BikeExportPage extends StatefulWidget {
   final E_Bike bike;

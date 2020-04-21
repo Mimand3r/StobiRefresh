@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Managers/UserManager.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
+import 'package:STOBI/Managers/UserManager.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
 
 class SmAuthModule with ChangeNotifier {
   Future<String> checkIfPreviousUserExists() async =>

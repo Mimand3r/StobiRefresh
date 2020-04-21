@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeDetail/ui/page_bike_detail.dart';
-import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
-import 'package:project_stobi/Features/BikeList/ui/configs/textStyles.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/storage_picture_worker.dart';
+import 'package:STOBI/Features/BikeDetail/ui/page_bike_detail.dart';
+import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
+import 'package:STOBI/Features/BikeList/ui/configs/textStyles.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/storage_picture_worker.dart';
 import 'package:provider/provider.dart';
 
 class BikeListElement extends StatefulWidget {

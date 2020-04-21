@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeDetail/ui/page_bike_detail.dart';
-import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
+import 'package:STOBI/Features/BikeDetail/ui/page_bike_detail.dart';
+import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
 
 class PageBikeFound extends StatefulWidget {
   final E_Bike bike;

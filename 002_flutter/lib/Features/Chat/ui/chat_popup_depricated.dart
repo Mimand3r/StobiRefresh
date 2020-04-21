@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
+import 'package:STOBI/General/colors.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
 
 class ChatPopupDepricated extends StatefulWidget {
   final Conversation conversationData;

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:core';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
 
 import 'data/database_types_depricated.dart';
 

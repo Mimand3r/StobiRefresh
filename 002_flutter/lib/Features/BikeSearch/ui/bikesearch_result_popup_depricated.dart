@@ -1,8 +1,8 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:project_stobi/General/colors.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
-// import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
+import 'package:STOBI/General/colors.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+// import 'package:STOBI/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class BikesearchResultPopupDepricated extends StatefulWidget {
   final Bike bike;

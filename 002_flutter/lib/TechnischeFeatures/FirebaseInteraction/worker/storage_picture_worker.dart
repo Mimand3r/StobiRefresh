@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:project_stobi/Managers/UserManager.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
+import 'package:STOBI/Managers/UserManager.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
 
 class StoragePictureWorker {
   static Future<String> storePictureFileInStorage(File picture) async {

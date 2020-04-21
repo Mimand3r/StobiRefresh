@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_user.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/model_user.dart';
 
 class FirestoreUserWorker {
   static Future<void> writeUserToDb(M_User user) async {

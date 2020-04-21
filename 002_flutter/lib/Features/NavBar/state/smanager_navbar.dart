@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
-import 'package:project_stobi/Features/BikeList/ui/page_mybikes.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/bike_registration_page.dart';
-import 'package:project_stobi/Features/BikeSearch/ui/page_bike_search.dart';
-import 'package:project_stobi/Features/BikeTransfer/ui/bike_export_page.dart';
-import 'package:project_stobi/Features/Chat/ui/chat_page.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
+import 'package:STOBI/Features/BikeList/ui/page_mybikes.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/bike_registration_page.dart';
+import 'package:STOBI/Features/BikeSearch/ui/page_bike_search.dart';
+import 'package:STOBI/Features/BikeTransfer/ui/bike_export_page.dart';
+import 'package:STOBI/Features/Chat/ui/chat_page.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 import 'package:provider/provider.dart';
 
 class SmNavbar with ChangeNotifier {

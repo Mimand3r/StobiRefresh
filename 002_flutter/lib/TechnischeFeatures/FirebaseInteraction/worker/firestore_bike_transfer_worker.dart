@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/transfer_data_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_user_worker.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/transfer_data_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/worker/firestore_user_worker.dart';
 
 class FirestoreBiketransferWorker {
   static Future<M_Bike> getBikeDataFromPin(String pin) async {

@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:project_stobi/Features/BikeRegistration/state/registration_manager.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/configs/colors.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/widgets/form_images.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
+import 'package:STOBI/Features/BikeRegistration/state/registration_manager.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/configs/colors.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/configs/textStyles.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/widgets/form_images.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
 import 'package:provider/provider.dart';
 
 class BikeRegistrationForm extends StatefulWidget {

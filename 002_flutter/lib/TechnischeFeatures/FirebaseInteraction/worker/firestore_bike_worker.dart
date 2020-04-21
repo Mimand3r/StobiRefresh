@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/config/firebase_configs.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/model_bike.dart';
 
 class FirestoreBikeWorker {
   static Future<void> writeSingleBike(M_Bike bike) async {

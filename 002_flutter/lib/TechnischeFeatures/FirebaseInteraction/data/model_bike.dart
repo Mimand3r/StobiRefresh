@@ -1,4 +1,4 @@
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/transfer_data_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/transfer_data_bike.dart';
 
 class M_Bike {
   String rahmenNummer;

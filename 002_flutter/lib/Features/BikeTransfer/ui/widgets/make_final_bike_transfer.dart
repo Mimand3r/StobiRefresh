@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeDetail/ui/page_bike_detail.dart';
-import 'package:project_stobi/Features/BikeTransfer/state/transfer_manager.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
+import 'package:STOBI/Features/BikeDetail/ui/page_bike_detail.dart';
+import 'package:STOBI/Features/BikeTransfer/state/transfer_manager.dart';
+import 'package:STOBI/Features/Login/ui/widgets/loading_widget.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/entity_user.dart';
 import 'package:provider/provider.dart';
 
 class MakeFinalBikeTransfer extends StatefulWidget {

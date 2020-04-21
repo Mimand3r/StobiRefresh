@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/Login/state/sm_auth_module.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/test_user_decisionpage.dart';
-import 'package:project_stobi/Features/MainPage/ui/startPage.dart';
+import 'package:STOBI/Features/Login/state/sm_auth_module.dart';
+import 'package:STOBI/Features/Login/ui/widgets/loading_widget.dart';
+import 'package:STOBI/Features/Login/ui/widgets/test_user_decisionpage.dart';
+import 'package:STOBI/Features/MainPage/ui/startPage.dart';
 import 'package:provider/provider.dart';
 
 import 'widgets/ask_for_name_helper.dart';

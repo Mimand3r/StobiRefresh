@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-import 'package:project_stobi/Features/NavBar/ui/bottom_bar.dart';
-import 'package:project_stobi/Features/NavBar/ui/widgets/add_element.dart';
-import 'package:project_stobi/Features/NavBar/ui/widgets/bike_transfer_export_button.dart';
-import 'package:project_stobi/Features/NavBar/ui/widgets/bike_transfer_import_button.dart';
-import 'package:project_stobi/Features/NavBar/ui/widgets/stobi_logo.dart';
+import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
+import 'package:STOBI/Features/NavBar/ui/bottom_bar.dart';
+import 'package:STOBI/Features/NavBar/ui/widgets/add_element.dart';
+import 'package:STOBI/Features/NavBar/ui/widgets/bike_transfer_export_button.dart';
+import 'package:STOBI/Features/NavBar/ui/widgets/bike_transfer_import_button.dart';
+import 'package:STOBI/Features/NavBar/ui/widgets/stobi_logo.dart';
 import 'package:provider/provider.dart';
 
 import 'widgets/navigation_page_options.dart';

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/configs/textStyles.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/configs/textStyles.dart';
 
 class FormLocalImages extends StatefulWidget {
   final List<File> importedImages;

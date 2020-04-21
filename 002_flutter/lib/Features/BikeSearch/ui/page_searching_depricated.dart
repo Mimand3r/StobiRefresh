@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/Login/ui/widgets/loading_widget.dart';
+import 'package:STOBI/Features/Login/ui/widgets/loading_widget.dart';
 
 class SearchingPageDepricated extends StatefulWidget {
   SearchingPageDepricated(

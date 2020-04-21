@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1047978402104:android:c4044572285f38ea7421cd",
         "android_client_info": {
-          "package_name": "dev.heino.project_stobi"
+          "package_name": "dev.heino.STOBI"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "1047978402104-1t41ufankjveqthp74vatbgcttn1fmfm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "dev.heino.project_stobi",
+            "package_name": "dev.heino.STOBI",
             "certificate_hash": "d03c1e0e853759c7f2d0bb9d8c91715d291d7fbc"
           }
         },

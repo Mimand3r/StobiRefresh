@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/MainPage/ui/startPage.dart';
+import 'package:STOBI/Features/MainPage/ui/startPage.dart';
 
 // Diese Page ist nur im Testing - Sie ermöglicht existierenden User zu verwerfen und nen neuen User zu erzeugen
 class TestUserDecisionPage extends StatefulWidget {

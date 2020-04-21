@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/NavBar/state/smanager_navbar.dart';
-import 'package:project_stobi/Features/NavBar/ui/config/textStyles.dart';
+import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
+import 'package:STOBI/Features/NavBar/ui/config/textStyles.dart';
 import 'package:provider/provider.dart';
 
 class NavPageOptions extends StatefulWidget {

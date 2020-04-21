@@ -1,19 +1,19 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Features/BikeList/ui/page_mybikes_depricated.dart';
-import 'package:project_stobi/Features/BikeRegistration/ui/register_bike_popup_depricated.dart';
-import 'package:project_stobi/Features/BikeSearch/ui/bikesearch_result_popup_depricated.dart';
-import 'package:project_stobi/Features/BikeSearch/ui/page_searching_depricated.dart';
-import 'package:project_stobi/Features/Chat/ui/chat_popup_depricated.dart';
-import 'package:project_stobi/Features/Chat/ui/page_conversations_depricated.dart';
-import 'package:project_stobi/Features/MainPage/ui/widgets/background.dart';
-import 'package:project_stobi/Features/NavBar/ui/nav_bar_depricated.dart';
-import 'package:project_stobi/Features/NavBar/ui/settings_dropdown_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/messaging_module_depricated.dart';
-// import 'package:project_stobi/TechnischeFeatures/Navigation/navigation_helper.dart';
+import 'package:STOBI/Features/BikeList/ui/page_mybikes_depricated.dart';
+import 'package:STOBI/Features/BikeRegistration/ui/register_bike_popup_depricated.dart';
+import 'package:STOBI/Features/BikeSearch/ui/bikesearch_result_popup_depricated.dart';
+import 'package:STOBI/Features/BikeSearch/ui/page_searching_depricated.dart';
+import 'package:STOBI/Features/Chat/ui/chat_popup_depricated.dart';
+import 'package:STOBI/Features/Chat/ui/page_conversations_depricated.dart';
+import 'package:STOBI/Features/MainPage/ui/widgets/background.dart';
+import 'package:STOBI/Features/NavBar/ui/nav_bar_depricated.dart';
+import 'package:STOBI/Features/NavBar/ui/settings_dropdown_depricated.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/data/database_types_depricated.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_module_depricated.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_worker_depricated.dart';
+import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/messaging_module_depricated.dart';
+// import 'package:STOBI/TechnischeFeatures/Navigation/navigation_helper.dart';
 
 class MainPageDepricated extends StatefulWidget {
   MainPageDepricated({Key key, @required this.osData, @required this.user})
