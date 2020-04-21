@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/transfer_data_bike.dart';
 
 class M_Bike {

@@ -84,7 +84,7 @@ class E_Bike {
     for (var picName in this.pictures) {
       var file = await StoragePictureWorker.downloadPictureFromStorage(picName);
 
-      if (file == null) pictures.add(Image.file(file));
+      if (file != null) pictures.add(Image.file(file));
     }
 
     return pictures;

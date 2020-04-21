@@ -58,7 +58,6 @@ class _BikeListElementState extends State<BikeListElement> {
 
                           Consumer<SmUserBikeList>(
                             builder: (con, state, child) {
-                              print("builded");
                               return Expanded(
                                 child: Container(
                                   child: Hero(

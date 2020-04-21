@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:project_stobi/Managers/BikeDataManager.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 
 class SmUserBikeList with ChangeNotifier {
@@ -10,30 +7,11 @@ class SmUserBikeList with ChangeNotifier {
 
   SmUserBikeList() : super() {
     instance = this;
-
-    // _fetchInitialData();
-    print(_userBikes.length);
-    print(_pictures.length);
-    // var currentLists;
-    // scheduleMicrotask(() {
-    //   print("fetching data");
-
-    //   instance.notifyListeners();
-    // });
   }
 
   static SmUserBikeList instance = null;
 
-  Future _fetchInitialData() async {
-    await Future.microtask(() {
-      var currentLists = BikeDataManager.instance.getCurrentLists();
-      _userBikes = currentLists[0] as List<E_Bike>;
-      _pictures = currentLists[1] as Map<String, List<Image>>;
-    });
-    print(_userBikes.length);
-    print(_pictures.length);
-    notifyListeners();
-  }
+
 
   // invoked by GlobalManager
   void updateYourData(

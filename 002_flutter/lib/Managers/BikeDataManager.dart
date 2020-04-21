@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_stobi/Features/BikeList/state/sm_user_bike_list.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/data/entity_bike.dart';
 import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/firestore_bike_worker.dart';
-import 'package:project_stobi/TechnischeFeatures/FirebaseInteraction/worker/storage_picture_worker.dart';
 
 class BikeDataManager {
   // Singleton
@@ -20,7 +19,7 @@ class BikeDataManager {
   }
 
   void storeBikesWithKnownPicturesInGlobalList(
-      List<E_Bike> newBikes, Map<String, List<Image>> newPictures) async {
+      List<E_Bike> newBikes, Map<String, List<Image>> newPictures) {
     // Update own State
     for (var newBike in newBikes) {
       _user_bikes.add(newBike);

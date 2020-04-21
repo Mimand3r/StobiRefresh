@@ -17,14 +17,19 @@ class FirestoreBikeWorker {
   static Future<M_Bike> getSingleBike(String rahmenNummer) async {
     print(
         "Reading Data from Firestore - Read Element from Global Bike List - $rahmenNummer");
-    var snap = await Firestore.instance
-        .collection(dbName)
-        .document(dbVersion)
-        .collection(bike_list_name)
-        .document(rahmenNummer)
-        .get();
 
-    return M_Bike.createBikeFromSnapshot(snap);
+    try {
+      var snap = await Firestore.instance
+          .collection(dbName)
+          .document(dbVersion)
+          .collection(bike_list_name)
+          .document(rahmenNummer)
+          .get();
+      if (snap.data == null) return null;
+      return M_Bike.createBikeFromSnapshot(snap);
+    } catch (e) {
+      return null;
+    }
   }
 
   static Future<List<M_Bike>> getMultipleBikes(
@@ -41,4 +46,14 @@ class FirestoreBikeWorker {
 
   static Future<void> writeMultipleBikes(List<M_Bike> bikes) async =>
       bikes.forEach((bike) async => await writeSingleBike(bike));
+
+  static Future<void> changeBikeLostState(bool isLost, String rNr) async {
+    print("Writing Data to Firestore - Changing Lost State - $rNr");
+    await Firestore.instance
+        .collection(dbName)
+        .document(dbVersion)
+        .collection(bike_list_name)
+        .document(rNr)
+        .updateData({"registeredAsStolen": isLost});
+  }
 }

@@ -20,7 +20,6 @@ class _AskForNameHelperState extends State<AskForNameHelper> {
 
   @override
   Widget build(BuildContext context) {
-    print("rebuild");
     return Center(
       child: Container(
         margin: EdgeInsets.only(

@@ -80,9 +80,6 @@ class UserManager {
 
     _currentUser = newUser;
 
-    await BikeDataManager.instance
-        .storeBikesWithUnknownPicturesInGlobalList(dummyBikes);
-
     return _currentUser;
   }
 
