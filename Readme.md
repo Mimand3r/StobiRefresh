@@ -2,17 +2,17 @@
 
 ## Current Features:
 
-Register User
-Option to use Old User or Register new (TestFeature)
-New users get Example Bikes (TestFeature)
-Register New Bike + Option to Capture Picture or use from Device
-View Owned Bike Details
-Mark Owned Bike as Lost/Found
-Search Bikes of other Users + get OwnerName and Lost/Found Status of Bike
+* Register User
+* Option to use Old User or Register new (TestFeature)
+* New users get Example Bikes (TestFeature)
+* Register New Bike + Option to Capture Picture or use from Device
+* View Owned Bike Details
+* Mark Owned Bike as Lost/Found
+* Search Bikes of other Users + get OwnerName and Lost/Found Status of Bike
 
 ## Open Features:
-Kommunikationsaufnahme mit Bike Besitzer
-StartPage
+* Kommunikationsaufnahme mit Bike Besitzer
+* StartPage
 
 
 ## Old - App Template:
