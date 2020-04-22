@@ -16,15 +16,23 @@
 * Kommunikationsaufnahme mit Bike Besitzer
 * StartPage
 * if bike is marked as Lost it should be visible on Bike List Page
+* Owned Bikes Should be Editable after Creation
+* Menübutton needs Function
+* Webung/Ads provisorisch
 
 ## Known Bugs
 * bei page wechsel werden die page tabs kurz rot (unpleasant)
 * klicking top right Icons could give better click feedback
 * transitions to Pages left from current Page dont feel right
 
+## Punkte von Tobi
+* Top Bar vergrößern
+* Bottom Bar verkleinern
+* Bike verloren/gefunden -> Wording anpassen und vergrößern
+* Menübutton needs Function
+* keine Bilder Picture -> transparent Background and Schriftart ändern
 
-
-## Old - App Template:
+## Old - App Template
 
 Der Versuch das Projekt zu clonen war nicht erfolgreich (Fail bei GoogleLogin). Vermutlich aufgrund von AndroidX.
 Daher nun eine manuell gemachte Kopie
