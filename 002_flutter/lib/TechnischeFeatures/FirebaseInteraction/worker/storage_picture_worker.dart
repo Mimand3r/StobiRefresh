@@ -8,7 +8,7 @@ import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/config/firebase_con
 class StoragePictureWorker {
   static Future<String> storePictureFileInStorage(File picture) async {
     
-    var uId = UserManager.instance.getCurrentUser;
+    var uId = UserManager.instance.getCurrentUser.uId;
     var time = Timestamp.now().millisecondsSinceEpoch;
     var fileEnding = picture.path.split(".").last;
     var pictureName = "${uId}_$time.$fileEnding";
@@ -21,7 +21,7 @@ class StoragePictureWorker {
 
     var taskResult = await uploadTask.onComplete;
 
-    if (taskResult.error > 0) {
+    if (taskResult.error != null) {
       print("UPLOAD ERROR - Writing Data to Storage - New Picture $pictureName");
       return null;
     }

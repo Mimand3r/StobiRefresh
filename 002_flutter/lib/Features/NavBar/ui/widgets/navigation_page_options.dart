@@ -32,6 +32,8 @@ class _NavPageOptionsState extends State<NavPageOptions> {
       return Transform.translate(
         offset: Offset(0.0, -3.0),
         child: Divider(
+          indent: 30,
+          endIndent: 30,
           thickness: 1.5,
           color: Colors.black.withAlpha(150),
         ),
@@ -43,19 +45,19 @@ class _NavPageOptionsState extends State<NavPageOptions> {
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: Offset(0.0, -25),
+      offset: Offset(0.0, -32),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: <Widget>[
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
                   onTap: () => pageClicked(Pages.myBikes),
                   child: Container(
                     color: Colors.transparent,
-                    width: 70.0,
+                    width: 120.0,
                     height: 40.0,
                     child: Center(
                       child: Column(
@@ -72,7 +74,7 @@ class _NavPageOptionsState extends State<NavPageOptions> {
                   onTap: () => pageClicked(Pages.search),
                   child: Container(
                     color: Colors.transparent,
-                    width: 70.0,
+                    width: 120.0,
                     height: 40.0,
                     child: Center(
                       child: Column(
@@ -90,7 +92,7 @@ class _NavPageOptionsState extends State<NavPageOptions> {
                   onTap: () => pageClicked(Pages.chats),
                   child: Container(
                     color: Colors.transparent,
-                    width: 70.0,
+                    width: 120.0,
                     height: 40.0,
                     child: Center(
                       child: Column(

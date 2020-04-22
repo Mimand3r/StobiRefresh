@@ -18,12 +18,8 @@
 * if bike is marked as Lost it should be visible on Bike List Page
 
 ## Known Bugs
-* Creating new Bike without Pic creates Picture Error -> fixed on restart
-* Creating Bike wirh pictures doesnt work
-* top right icons are hard to klick
-* page nav Tabs could be a bit easier to click
-* Searching Bike doesnt work -> getter 'name' was called on null
-* beansprucht man ein Bike so navigiert das auf eine leere Page
+* beansprucht man ein Bike so navigiert das auf eine leere Page ?? -> not reproducable
+
 
 
 ## Old - App Template:

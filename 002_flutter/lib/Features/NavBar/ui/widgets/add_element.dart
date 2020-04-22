@@ -9,24 +9,24 @@ class AddElement extends StatefulWidget {
 
 class _AddElementState extends State<AddElement> {
   void addBikeGotPressed() {
-    final manager = Provider.of<SmNavbar>(context,listen: false);
+    final manager = Provider.of<SmNavbar>(context, listen: false);
     manager.switchToPage(context, Pages.addBike);
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 18.0, right: 30.0),
+      padding: const EdgeInsets.only(top: 0.0, right: 0.0),
       child: Align(
         alignment: Alignment.topRight,
         child: GestureDetector(
           onTap: addBikeGotPressed,
           child: Container(
             color: Colors.transparent,
-            width: 50,
-            height: 30,
+            width: 70,
+            height: 55,
             // color: Colors.red,
-            child: Icon(Icons.add),
+            child: Transform.translate(offset: const Offset(-15, 5), child: Icon(Icons.add)),
           ),
         ),
       ),

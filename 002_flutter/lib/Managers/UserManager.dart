@@ -48,6 +48,7 @@ class UserManager {
 
   Future<E_User> createNewUser(String name) async {
     // Using Anonymous Auth for uID creation
+    await FirebaseAuth.instance.signOut();
     var authResult = await FirebaseAuth.instance.signInAnonymously();
     var authUser = authResult.user;
 
@@ -106,6 +107,11 @@ class UserManager {
     // Tell Global Bike Data Manager
     var imageList =
         images.map<Image>((el) => Image.file(el, fit: BoxFit.contain)).toList();
+
+    // Handle No Picture Case
+    if (imageList.length == 0)
+      imageList.add(Image.asset("assets/pictures/NoPictures.png", height: 100, width: 100));
+
     BikeDataManager.instance.storeBikesWithKnownPicturesInGlobalList(
         <E_Bike>[newBike], {newBike.rahmenNummer: imageList});
   }

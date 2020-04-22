@@ -19,16 +19,19 @@ class _BikeTransferExportButtonState extends State<BikeTransferExportButton> {
     return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: const EdgeInsets.only(top: 13, right: 80),
+        padding: const EdgeInsets.only(top: 0, right: 70),
         child: GestureDetector(
           onTap: _transferBikeClicked,
           child: Container(
-            width: 40,
-            height: 40,
-            // color: Colors.red,
-            child: Icon(
-              Icons.swap_horiz,
-              size: 28,
+            width: 70,
+            height: 55,
+            color: Colors.transparent,
+            child: Transform.translate(
+              offset: const Offset(12, 6),
+              child: Icon(
+                Icons.swap_horiz,
+                size: 28,
+              ),
             ),
             // color: Colors.red,
           ),

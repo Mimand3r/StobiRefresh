@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:STOBI/Managers/UserManager.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:STOBI/Features/BikeRegistration/state/registration_manager.dart';
@@ -64,6 +65,7 @@ class _BikeRegistrationFormState extends State<BikeRegistrationForm> {
     var newBike = E_Bike(
       rahmenNummer: _rahmennummer,
       registeredAsStolen: false,
+      currentOwnerId: UserManager.instance.getCurrentUser.uId,
       idData: BikeIdData(
         name: _name,
         art: _art,
