@@ -32,6 +32,10 @@
 * Menübutton needs Function
 * keine Bilder Picture -> transparent Background and Schriftart ändern
 
+## Bei Release auf Testflight kommt folgende Fehlermeldung
+ITMS-90809: Deprecated API Usage - Apple will no longer accept submissions of new apps that use UIWebView as of April 30, 2020 and app updates that use UIWebView as of December 2020. Instead, use WKWebView for improved security and reliability. Learn more (https://developer.apple.com/documentation/uikit/uiwebview). 
+
+
 ## Old - App Template
 
 Der Versuch das Projekt zu clonen war nicht erfolgreich (Fail bei GoogleLogin). Vermutlich aufgrund von AndroidX.
