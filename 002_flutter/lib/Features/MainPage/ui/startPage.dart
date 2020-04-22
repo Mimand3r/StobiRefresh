@@ -60,6 +60,10 @@ class _StartPageState extends State<StartPage> {
               padding: const EdgeInsets.only(top: 40.0),
               child: Column(
                 children: <Widget>[
+                  Text("Start Page wird noch überarbeitet"),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Container(
                     height: 220.0,
                     width: double.infinity,

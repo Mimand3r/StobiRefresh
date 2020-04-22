@@ -18,7 +18,9 @@
 * if bike is marked as Lost it should be visible on Bike List Page
 
 ## Known Bugs
-* beansprucht man ein Bike so navigiert das auf eine leere Page ?? -> not reproducable
+* bei page wechsel werden die page tabs kurz rot (unpleasant)
+* klicking top right Icons could give better click feedback
+* transitions to Pages left from current Page dont feel right
 
 
 

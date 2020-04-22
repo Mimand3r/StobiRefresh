@@ -44,74 +44,73 @@ class _NavPageOptionsState extends State<NavPageOptions> {
 
   @override
   Widget build(BuildContext context) {
+    var deviceWidth = MediaQuery.of(context).size.width;
+
     return Transform.translate(
       offset: Offset(0.0, -32),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () => pageClicked(Pages.myBikes),
-                  child: Container(
-                    color: Colors.transparent,
-                    width: 120.0,
-                    height: 40.0,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("Meine Bikes", style: navigationOptions),
-                          createUnderline(Pages.myBikes)
-                        ],
-                      ),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () => pageClicked(Pages.myBikes),
+                child: Container(
+                  color: Colors.transparent,
+                  width: deviceWidth / 3,
+                  height: 40.0,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Meine Bikes", style: navigationOptions),
+                        createUnderline(Pages.myBikes)
+                      ],
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () => pageClicked(Pages.search),
-                  child: Container(
-                    color: Colors.transparent,
-                    width: 120.0,
-                    height: 40.0,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("Suche", style: navigationOptions),
-                          createUnderline(Pages.search)
-                        ],
-                      ),
+              ),
+              GestureDetector(
+                onTap: () => pageClicked(Pages.search),
+                child: Container(
+                  color: Colors.transparent,
+                  width: deviceWidth / 3,
+                  height: 40.0,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Suche", style: navigationOptions),
+                        createUnderline(Pages.search)
+                      ],
                     ),
                   ),
                 ),
+              ),
 
-                GestureDetector(
-                  onTap: () => pageClicked(Pages.chats),
-                  child: Container(
-                    color: Colors.transparent,
-                    width: 120.0,
-                    height: 40.0,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("Chats", style: navigationOptions),
-                          createUnderline(Pages.chats)
-                        ],
-                      ),
+              GestureDetector(
+                onTap: () => pageClicked(Pages.chats),
+                child: Container(
+                  color: Colors.transparent,
+                  width: deviceWidth / 3,
+                  height: 40.0,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Chats", style: navigationOptions),
+                        createUnderline(Pages.chats)
+                      ],
                     ),
                   ),
                 ),
-                // ,
-                // Text("Suche"),
-                // Text("Chats"),
-              ],
-            ),
-          ],
-        ),
+              ),
+              // ,
+              // Text("Suche"),
+              // Text("Chats"),
+            ],
+          ),
+        ],
       ),
     );
   }

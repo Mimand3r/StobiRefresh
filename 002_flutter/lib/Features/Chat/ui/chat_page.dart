@@ -25,10 +25,10 @@ class _ChatPageState extends State<ChatPage> {
           child: Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
-              color: Colors.red,
+              // color: Colors.red,
               width: double.infinity,
               height: double.infinity,
-              child: Center(child: Text("Chat Page")),
+              child: Center(child: Text("Chat Page wird noch überarbeitet")),
             ),
           ),
         ),
