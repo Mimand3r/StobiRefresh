@@ -68,6 +68,7 @@ class _NavBarState extends State<NavBar> {
           padding: const EdgeInsets.only(top: 75.0),
           child: Column(
             children: <Widget>[
+              SizedBox(height: 13,),
               Expanded(child: widget.child),
               if (widget.bottomBar != null)
                 Consumer<SmNavbar>(
@@ -75,8 +76,9 @@ class _NavBarState extends State<NavBar> {
                     if (s.hiddenBottomBar) return Container();
 
                     return Align(
-                        alignment: Alignment.bottomCenter,
-                        child: widget.bottomBar);
+                      alignment: Alignment.bottomCenter,
+                      child: widget.bottomBar,
+                    );
                   },
                 )
             ],

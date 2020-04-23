@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:STOBI/Features/BikeDetail/ui/config/textStyles.dart';
 import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
@@ -131,7 +129,7 @@ class _PageBikeDetailState extends State<PageBikeDetail> {
                                         color: Colors.red)),
                                 RaisedButton(
                                   onPressed: gefundenMelden,
-                                  child: Text("Fahrrad gefunden"),
+                                  child: Text("Bike gefunden", style: TextStyle(fontSize: 20),),
                                 )
                               ],
                             );
@@ -144,7 +142,7 @@ class _PageBikeDetailState extends State<PageBikeDetail> {
                                         color: Colors.green)),
                                 RaisedButton(
                                   onPressed: verlorenMelden,
-                                  child: Text("Fahrrad verloren"),
+                                  child: Text("Bike verloren", style: TextStyle(fontSize: 20),),
                                 )
                               ],
                             );

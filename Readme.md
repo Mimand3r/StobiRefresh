@@ -18,7 +18,7 @@
 * if bike is marked as Lost it should be visible on Bike List Page
 * Owned Bikes Should be Editable after Creation
 * Menübutton needs Function
-* Webung/Ads provisorisch
+* Werbung/Ads provisorisch
 
 ## Known Bugs
 * bei page wechsel werden die page tabs kurz rot (unpleasant)
@@ -26,11 +26,13 @@
 * transitions to Pages left from current Page dont feel right
 
 ## Punkte von Tobi
-* Top Bar vergrößern
-* Bottom Bar verkleinern
-* Bike verloren/gefunden -> Wording anpassen und vergrößern
-* Menübutton needs Function
+* Loading Text to close to Circle (done)
+* Top Bar vergrößern (done)
+* Bottom Bar verkleinern (done)
+* Bike verloren/gefunden -> Wording anpassen und vergrößern (done)
+* Menübutton needs Function (NotImplementedMessage)
 * keine Bilder Picture -> transparent Background and Schriftart ändern
+* Werbung/Ads provisorisch
 
 ## Bei Release auf Testflight kommt folgende Fehlermeldung
 ITMS-90809: Deprecated API Usage - Apple will no longer accept submissions of new apps that use UIWebView as of April 30, 2020 and app updates that use UIWebView as of December 2020. Instead, use WKWebView for improved security and reliability. Learn more (https://developer.apple.com/documentation/uikit/uiwebview). 

@@ -8,19 +8,19 @@ class StobiLogo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(left: 18.0, top: 10.0),
+          padding: const EdgeInsets.only(left: 40.0, top: 10.0),
           child: Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                width: 130.0,
-                height: 60.0,
+                // width: 130.0,
+                height: 75.0,
                 child: Image.asset(
                   stobi_logo_path,
                 ),
               )),
         ),
         Transform.translate(
-            offset: const Offset(0.0, -25.0),
+            offset: const Offset(0.0, -29.0),
             child: Divider(
               thickness: 1.15,
               color: Colors.black.withAlpha(200),

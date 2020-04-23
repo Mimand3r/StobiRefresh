@@ -23,13 +23,13 @@ class _BikeTransferImportButtonState extends State<BikeTransferImportButton> {
           onTap: _transferBikeClicked,
           child: Container(
             width: 70,
-            height: 55,
+            height: 65,
             color: Colors.transparent,
             child: Transform.translate(
-              offset: const Offset(12, 6),
+              offset: const Offset(7, 6),
               child: Icon(
                 Icons.swap_horiz,
-                size: 28,
+                size: 35,
               ),
             ),
             // color: Colors.red,

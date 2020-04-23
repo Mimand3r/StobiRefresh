@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:STOBI/Features/NavBar/assets/resources.dart';
-import 'package:STOBI/Features/NavBar/state/smanager_navbar.dart';
-import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key key}) : super(key: key);
@@ -19,14 +17,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
       tag: "bottomBar",
       child: Container(
         width: double.infinity,
-        height: 60,
+        height: 40,
         child: Row(
           children: <Widget>[
             Expanded(
               flex: 1,
               child: GestureDetector(
                 onTap: backGotClicked,
-                child: Container(child: Image.asset(back_button_path)),
+                child: Transform.translate(
+                    offset: const Offset(0, -9),
+                    child: Container(child: Image.asset(back_button_path))),
               ),
             ),
             Expanded(

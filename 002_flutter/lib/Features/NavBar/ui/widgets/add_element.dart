@@ -24,9 +24,8 @@ class _AddElementState extends State<AddElement> {
           child: Container(
             color: Colors.transparent,
             width: 70,
-            height: 55,
-            // color: Colors.red,
-            child: Transform.translate(offset: const Offset(-15, 5), child: Icon(Icons.add)),
+            height: 63,
+            child: Transform.translate(offset: const Offset(-15, 5), child: Icon(Icons.add, size: 35,)),
           ),
         ),
       ),
