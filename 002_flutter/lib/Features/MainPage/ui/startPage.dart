@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:STOBI/Features/BikeList/state/sm_user_bike_list.dart';
 import 'package:STOBI/Features/Login/state/sm_auth_module.dart';
@@ -17,11 +17,18 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
+
   @override
   void initState() {
     super.initState();
     invokeListManagerProviderEarly();
     readPrevUserData();
+  }
+
+  @override
+  void dispose() {
+    // AppAds.dispose();
+    super.dispose();
   }
 
   Future invokeListManagerProviderEarly() async {

@@ -6,6 +6,7 @@ import 'package:STOBI/TechnischeFeatures/FirebaseInteraction/firestore_worker_de
 
 import 'data/database_types_depricated.dart';
 
+
 class FirestoreModule_depricated {
   // Singleton
   FirestoreModule_depricated._privateConstructor();

@@ -78,7 +78,7 @@ class E_Bike {
 
     if (this.pictures == null || this.pictures.length == 0)
       return <Image>[
-        Image.asset("assets/pictures/NoPictures.png", height: 100, width: 100)
+        Image.asset("assets/pictures/NoPictures.png", height: 300, width: 300)
       ];
 
     for (var picName in this.pictures) {

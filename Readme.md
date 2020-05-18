@@ -33,6 +33,9 @@
 * Menübutton needs Function (NotImplementedMessage)
 * keine Bilder Picture -> transparent Background and Schriftart ändern
 * Werbung/Ads provisorisch
+* Menüleiste Navigation weiter vergrößern
+* Bike Detail Page gets CashIcon Bottom Right
+* Name des Empfängers weiter runter und FittingProblem fixen
 
 ## Bei Release auf Testflight kommt folgende Fehlermeldung
 ITMS-90809: Deprecated API Usage - Apple will no longer accept submissions of new apps that use UIWebView as of April 30, 2020 and app updates that use UIWebView as of December 2020. Instead, use WKWebView for improved security and reliability. Learn more (https://developer.apple.com/documentation/uikit/uiwebview). 

@@ -110,7 +110,7 @@ class UserManager {
 
     // Handle No Picture Case
     if (imageList.length == 0)
-      imageList.add(Image.asset("assets/pictures/NoPictures.png", height: 100, width: 100));
+      imageList.add(Image.asset("assets/pictures/NoPictures.png", height: 300, width: 300));
 
     BikeDataManager.instance.storeBikesWithKnownPicturesInGlobalList(
         <E_Bike>[newBike], {newBike.rahmenNummer: imageList});
