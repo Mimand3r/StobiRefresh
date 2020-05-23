@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1047978402104-rk6gbcl4jgcnlpj16udv739fauiql4m6.apps.googleusercontent.com</string>
+	<string>602855682001-dbt3rrng5imo0pjkaip96pnl6c0qfk3i.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1047978402104-rk6gbcl4jgcnlpj16udv739fauiql4m6</string>
+	<string>com.googleusercontent.apps.602855682001-dbt3rrng5imo0pjkaip96pnl6c0qfk3i</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>1047978402104-1t41ufankjveqthp74vatbgcttn1fmfm.apps.googleusercontent.com</string>
+	<string>602855682001-b1fvisal47in3m99u0orbmnm0it0gt99.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDWXzhdT2QX1VxJlueLGeYKE1VZWh4ITwQ</string>
+	<string>AIzaSyDzet0djD5JlkZaiVLC3_h-EqsBfRoUtzk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1047978402104</string>
+	<string>602855682001</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>dev.heino.projectstobi</string>
 	<key>PROJECT_ID</key>
-	<string>projektstobi</string>
+	<string>stobi-1efce</string>
 	<key>STORAGE_BUCKET</key>
-	<string>projektstobi.appspot.com</string>
+	<string>stobi-1efce.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1047978402104:ios:b0dbe498ad1b64567421cd</string>
+	<string>1:602855682001:ios:7c7876211b7e7465e83af0</string>
 	<key>DATABASE_URL</key>
-	<string>https://projektstobi.firebaseio.com</string>
+	<string>https://stobi-1efce.firebaseio.com</string>
 </dict>
 </plist>
