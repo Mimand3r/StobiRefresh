@@ -1,11 +1,11 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=E:\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\Heinrich\Projekte\2019\DIAS-Projekte\27_StobiRefresh\002_flutter"
-export "FLUTTER_TARGET=lib\main.dart"
+export "FLUTTER_ROOT=/Users/heinrich/Documents/FlutterSDK/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/heinrich/Documents/Projects/006_StobiRefresh/StobiRefresh/002_flutter"
+export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
-export "SYMROOT=${SOURCE_ROOT}/../build\ios"
+export "SYMROOT=${SOURCE_ROOT}/../build/ios"
 export "OTHER_LDFLAGS=$(inherited) -framework Flutter"
-export "FLUTTER_FRAMEWORK_DIR=E:\flutter\bin\cache\artifacts\engine\ios"
+export "FLUTTER_FRAMEWORK_DIR=/Users/heinrich/Documents/FlutterSDK/flutter/bin/cache/artifacts/engine/ios-release"
 export "FLUTTER_BUILD_NAME=0.0.5"
 export "FLUTTER_BUILD_NUMBER=1"
