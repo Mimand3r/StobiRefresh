@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1047978402104",
-    "firebase_url": "https://projektstobi.firebaseio.com",
-    "project_id": "projektstobi",
-    "storage_bucket": "projektstobi.appspot.com"
+    "project_number": "602855682001",
+    "firebase_url": "https://stobi-1efce.firebaseio.com",
+    "project_id": "stobi-1efce",
+    "storage_bucket": "stobi-1efce.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1047978402104:android:c4044572285f38ea7421cd",
+        "mobilesdk_app_id": "1:602855682001:android:f3b468914a6d234be83af0",
         "android_client_info": {
           "package_name": "dev.heino.STOBI"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1047978402104-1t41ufankjveqthp74vatbgcttn1fmfm.apps.googleusercontent.com",
+          "client_id": "602855682001-b1fvisal47in3m99u0orbmnm0it0gt99.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "dev.heino.STOBI",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "1047978402104-jhgh9uc97ha7k2qt99sblnc5g6cmk8tg.apps.googleusercontent.com",
+          "client_id": "602855682001-6qmolq9plg8ulgd8covmitvvh249skta.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBQF1K9nJ3z4uFX4pGB_9oLLzKAEnQZ2WM"
+          "current_key": "AIzaSyB3VRhYUWEgFVLBZaQaldPPGmPJ7KkKiAc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1047978402104-jhgh9uc97ha7k2qt99sblnc5g6cmk8tg.apps.googleusercontent.com",
+              "client_id": "602855682001-6qmolq9plg8ulgd8covmitvvh249skta.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
